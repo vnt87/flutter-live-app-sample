@@ -45,10 +45,10 @@ void main() async {
         ? (await getApplicationSupportDirectory()).path
         : null,
   );
-  //初始化服务
+  //Khởi tạo dịch vụ
   await initServices();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  //设置状态栏为透明
+  //Đặt thanh trạng thái trong suốt
   SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
@@ -58,14 +58,14 @@ void main() async {
   runApp(const MyApp());
 }
 
-/// 将Hive数据迁移到Application Support
+/// Di chuyển dữ liệu Hive đến Application Support
 Future migrateData() async {
   if (Platform.isAndroid || Platform.isIOS) {
     return;
   }
   var hiveFileList = [
     "followuser",
-    //旧版本写错成hostiry了
+    //Phiên bản cũ viết sai thành hostiry
     "hostiry",
     "followusertag",
     "localstorage",
@@ -120,13 +120,13 @@ Future initServices() async {
   Hive.registerAdapter(HistoryAdapter());
   Hive.registerAdapter(FollowUserTagAdapter());
 
-  //包信息
+  //Thông tin gói
   Utils.packageInfo = await PackageInfo.fromPlatform();
-  //本地存储
+  //Lưu trữ cục bộ
   Log.d("Init LocalStorage Service");
   await Get.put(LocalStorageService()).init();
   await Get.put(DBService()).init();
-  //初始化设置控制器
+  //Khởi tạo controller cài đặt
   Get.put(AppSettingsController());
 
   Get.put(BiliBiliAccountService());
@@ -139,7 +139,7 @@ Future initServices() async {
 }
 
 void initCoreLog() {
-  //日志信息
+  //Thông tin log
   CoreLog.enableLog =
       !kReleaseMode || AppSettingsController.instance.logEnable.value;
   CoreLog.requestLogType = RequestLogType.short;
@@ -193,7 +193,7 @@ class MyApp extends StatelessWidget {
             ThemeMode.values[Get.find<AppSettingsController>().themeMode.value],
         initialRoute: RoutePath.kIndex,
         getPages: AppPages.routes,
-        //国际化
+        //Quốc tế hóa
         locale: const Locale("zh", "CN"),
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
@@ -209,13 +209,13 @@ class MyApp extends StatelessWidget {
         navigatorObservers: [FlutterSmartDialog.observer],
         builder: FlutterSmartDialog.init(
           loadingBuilder: ((msg) => const AppLoaddingWidget()),
-          //字体大小不跟随系统变化
+          //Kích thước font không theo hệ thống
           builder: (context, child) => MediaQuery(
             data: MediaQuery.of(context)
                 .copyWith(textScaler: const TextScaler.linear(1.0)),
             child: Stack(
               children: [
-                //侧键返回
+                //Phím bên trở về
                 RawGestureDetector(
                   excludeFromSemantics: true,
                   gestures: <Type, GestureRecognizerFactory>{
@@ -225,7 +225,7 @@ class MyApp extends StatelessWidget {
                       () => FourthButtonTapGestureRecognizer(),
                       (FourthButtonTapGestureRecognizer instance) {
                         instance.onTapDown = (TapDownDetails details) async {
-                          //如果处于全屏状态，退出全屏
+                          //Nếu đang ở chế độ toàn màn hình, thoát toàn màn hình
                           if (!Platform.isAndroid && !Platform.isIOS) {
                             if (await windowManager.isFullScreen()) {
                               await windowManager.setFullScreen(false);
@@ -242,8 +242,8 @@ class MyApp extends StatelessWidget {
                     onKeyEvent: (KeyEvent event) async {
                       if (event is KeyDownEvent &&
                           event.logicalKey == LogicalKeyboardKey.escape) {
-                        // ESC退出全屏
-                        // 如果处于全屏状态，退出全屏
+                        // ESC thoát toàn màn hình
+                        // Nếu đang ở chế độ toàn màn hình, thoát toàn màn hình
                         if (!Platform.isAndroid && !Platform.isIOS) {
                           if (await windowManager.isFullScreen()) {
                             await windowManager.setFullScreen(false);
@@ -256,8 +256,8 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
 
-                //查看DEBUG日志按钮
-                //只在Debug、Profile模式显示
+                //Nút xem log DEBUG
+                      //Chỉ hiển thị ở chế độ Debug, Profile
                 Visibility(
                   visible: !kReleaseMode,
                   child: Positioned(

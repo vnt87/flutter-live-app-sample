@@ -61,7 +61,7 @@ class SettingsMenu<T> extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
-      useSafeArea: true, //useSafeArea似乎无效
+      useSafeArea: true, //useSafeArea có vẻ không hiệu quả
       builder: (_) => SafeArea(
         top: false,
         child: SingleChildScrollView(

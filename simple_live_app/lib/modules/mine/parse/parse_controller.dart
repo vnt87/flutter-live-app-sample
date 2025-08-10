@@ -14,7 +14,7 @@ class ParseController extends GetxController {
 
   void jumpToRoom(String e) async {
     if (e.isEmpty) {
-      SmartDialog.showToast("链接不能为空");
+      SmartDialog.showToast("Liên kết không được để trống");
       return;
     }
     // 隐藏键盘
@@ -22,7 +22,7 @@ class ParseController extends GetxController {
 
     var parseResult = await parse(e);
     if (parseResult.isEmpty && parseResult.first == "") {
-      SmartDialog.showToast("无法解析此链接");
+      SmartDialog.showToast("Không thể phân tích liên kết này");
       return;
     }
 
@@ -35,12 +35,12 @@ class ParseController extends GetxController {
 
   void getPlayUrl(String e) async {
     if (e.isEmpty) {
-      SmartDialog.showToast("链接不能为空");
+      SmartDialog.showToast("Liên kết không được để trống");
       return;
     }
     var parseResult = await parse(e);
     if (parseResult.isEmpty && parseResult.first == "") {
-      SmartDialog.showToast("无法解析此链接");
+      SmartDialog.showToast("Không thể phân tích liên kết này");
       return;
     }
     Site site = parseResult[1];
@@ -50,12 +50,12 @@ class ParseController extends GetxController {
       var qualites = await site.liveSite.getPlayQualites(detail: detail);
       SmartDialog.dismiss(status: SmartStatus.loading);
       if (qualites.isEmpty) {
-        SmartDialog.showToast("读取直链失败,无法读取清晰度");
+        SmartDialog.showToast("Đọc liên kết trực tiếp thất bại, không thể đọc độ rõ nét");
 
         return;
       }
       var result = await Get.dialog(SimpleDialog(
-        title: const Text("选择清晰度"),
+        title: const Text("Chọn độ rõ nét"),
         children: qualites
             .map(
               (e) => ListTile(
@@ -78,12 +78,12 @@ class ParseController extends GetxController {
           await site.liveSite.getPlayUrls(detail: detail, quality: result);
       SmartDialog.dismiss(status: SmartStatus.loading);
       await Get.dialog(SimpleDialog(
-        title: const Text("选择线路"),
+        title: const Text("Chọn tuyến đường"),
         children: playUrl.urls
             .map(
               (e) => ListTile(
                 title: Text(
-                  "线路${playUrl.urls.indexOf(e) + 1}",
+                  "Tuyến ${playUrl.urls.indexOf(e) + 1}",
                 ),
                 subtitle: Text(
                   e,
@@ -93,14 +93,14 @@ class ParseController extends GetxController {
                 onTap: () {
                   Clipboard.setData(ClipboardData(text: e));
                   Get.back();
-                  SmartDialog.showToast("已复制直链");
+                  SmartDialog.showToast("Đã sao chép liên kết trực tiếp");
                 },
               ),
             )
             .toList(),
       ));
     } catch (e) {
-      SmartDialog.showToast("读取直链失败");
+      SmartDialog.showToast("Đọc liên kết trực tiếp thất bại");
     } finally {
       SmartDialog.dismiss(status: SmartStatus.loading);
     }

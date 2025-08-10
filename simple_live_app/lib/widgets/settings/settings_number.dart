@@ -106,7 +106,7 @@ class SettingsNumber extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       showDragHandle: true,
-      useSafeArea: true, //useSafeArea似乎无效
+      useSafeArea: true, //useSafeArea có vẻ không hiệu quả
       builder: (_) => SafeArea(
         top: false,
         child: Column(
@@ -148,7 +148,7 @@ class SettingsNumber extends StatelessWidget {
                   onChanged?.call(newValue.value);
                   Get.back();
                 },
-                child: const Text("确定"),
+                child: const Text("Xác nhận"),
               ),
             ),
           ],

@@ -41,7 +41,7 @@ class _RemoteSyncWebDAVConfigPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("WebDAV账号配置"),
+        title: const Text("Cấu hình tài khoản WebDAV"),
         centerTitle: true,
         actions: [
           IconButton(
@@ -49,16 +49,16 @@ class _RemoteSyncWebDAVConfigPageState
             onPressed: () {
               Utils.showInformationHelpDialog(
                 content: [
-                  const Text("此功能可以将您的数据备份到 WebDAV 服务器中或者进行数据恢复.\n"),
+                  const Text("Tính năng này có thể sao lưu dữ liệu của bạn vào máy chủ WebDAV hoặc khôi phục dữ liệu.\n"),
                   const Text(
-                      "WebDAV 服务器地址请以 http:// 或 https:// 开头，如坚果云(点击复制)："),
+                      "Địa chỉ máy chủ WebDAV vui lòng bắt đầu bằng http:// hoặc https://, như Jianguoyun (nhấp để sao chép)："),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: InkWell(
                       onTap: () {
                         Clipboard.setData(const ClipboardData(
                             text: "https://dav.jianguoyun.com/dav/"));
-                        SmartDialog.showToast("复制成功");
+                        SmartDialog.showToast("Sao chép thành công");
                       },
                       child: const Text("https://dav.jianguoyun.com/dav/"),
                     ),
@@ -79,8 +79,8 @@ class _RemoteSyncWebDAVConfigPageState
                 children: [
                   NoneBorderCircularTextField(
                     editingController: _urlController,
-                    labelText: "WebDAV服务器地址",
-                    hintText: "请以http:// 或 http:// 开头",
+                    labelText: "Địa chỉ máy chủ WebDAV",
+                    hintText: "Vui lòng bắt đầu bằng http:// hoặc https://",
                     prefixIcon: const Icon(Icons.public),
                     trailing: InkWell(
                       child: const Icon(
@@ -92,7 +92,7 @@ class _RemoteSyncWebDAVConfigPageState
                   ),
                   NoneBorderCircularTextField(
                     editingController: _userNameController,
-                    labelText: "账号",
+                    labelText: "Tên người dùng",
                     prefixIcon: const Icon(Icons.account_circle),
                     trailing: InkWell(
                         child: const Icon(
@@ -103,7 +103,7 @@ class _RemoteSyncWebDAVConfigPageState
                   ),
                   NoneBorderCircularTextField(
                     editingController: _passwordController,
-                    labelText: "密码",
+                    labelText: "Mật khẩu",
                     prefixIcon: const Icon(Icons.lock),
                     obscureText: controller.passwordVisible.value,
                     trailing: Row(
@@ -141,7 +141,7 @@ class _RemoteSyncWebDAVConfigPageState
                         borderRadius: BorderRadius.all(Radius.circular(8.0)),
                       ),
                       child: const Text(
-                        "登录",
+                        "Đăng nhập",
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {

@@ -1,14 +1,14 @@
 # simple_live_console
 
-基于simple_live_core的控制台程序。
+Chương trình console dựa trên simple_live_core.
 
-输入直播间播放直链获取信息及播放地址：
+Nhập link trực tiếp phòng livestream để lấy thông tin và địa chỉ phát:
 
 ```
 simple_live.exe -i [URL]
 ```
 
-输入直播间链接获取弹幕：
+Nhập link phòng livestream để lấy danmaku:
 
 ```
 simple_live.exe -d [URL]

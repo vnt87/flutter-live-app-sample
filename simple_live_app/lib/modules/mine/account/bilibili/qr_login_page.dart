@@ -10,7 +10,7 @@ class BiliBiliQRLoginPage extends GetView<BiliBiliQRLoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("哔哩哔哩账号登录")),
+      appBar: AppBar(title: const Text("Đăng nhập tài khoản Bilibili")),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,10 +25,10 @@ class BiliBiliQRLoginPage extends GetView<BiliBiliQRLoginController> {
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text("二维码加载失败"),
+                      const Text("Tải mã QR thất bại"),
                       TextButton(
                         onPressed: controller.loadQRCode,
-                        child: const Text("重试"),
+                        child: const Text("Thử lại"),
                       ),
                     ],
                   );
@@ -37,10 +37,10 @@ class BiliBiliQRLoginPage extends GetView<BiliBiliQRLoginController> {
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text("二维码已失效"),
+                      const Text("Mã QR đã hết hạn"),
                       TextButton(
                         onPressed: controller.loadQRCode,
-                        child: const Text("刷新二维码"),
+                        child: const Text("Làm mới mã QR"),
                       ),
                     ],
                   );
@@ -60,7 +60,7 @@ class BiliBiliQRLoginPage extends GetView<BiliBiliQRLoginController> {
                     AppStyle.vGap8,
                     Visibility(
                       visible: controller.qrStatus.value == QRStatus.scanned,
-                      child: const Text("已扫描，请在手机上确认登录"),
+                      child: const Text("Đã quét, vui lòng xác nhận đăng nhập trên điện thoại"),
                     ),
                   ],
                 );
@@ -70,7 +70,7 @@ class BiliBiliQRLoginPage extends GetView<BiliBiliQRLoginController> {
           const Padding(
             padding: AppStyle.edgeInsetsA24,
             child: Text(
-              "请使用哔哩哔哩手机客户端扫描二维码登录",
+              "Vui lòng sử dụng ứng dụng Bilibili trên điện thoại để quét mã QR đăng nhập",
               textAlign: TextAlign.center,
             ),
           ),

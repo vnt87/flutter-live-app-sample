@@ -1,10 +1,10 @@
 # simple_live_app
 
-基于核心库实现的Flutter APP客户端。
+Ứng dụng Flutter APP được thực hiện dựa trên thư viện cốt lõi.
 
 ## TODO
 
-- [ ] 支持桌面平台
-- [ ] iOS播放问题
-- [ ] 全屏、非全屏弹幕样式分离
-- [ ] 重写直播间 
+- [ ] Hỗ trợ nền tảng desktop
+- [ ] Vấn đề phát trên iOS
+- [ ] Tách biệt style danmaku toàn màn hình và không toàn màn hình
+- [ ] Viết lại phòng livestream

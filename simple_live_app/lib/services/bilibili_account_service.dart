@@ -18,7 +18,7 @@ class BiliBiliAccountService extends GetxService {
 
   var cookie = "";
   var uid = 0;
-  var name = "未登录".obs;
+  var name = "Chưa đăng nhập".obs;
 
   @override
   void onInit() {
@@ -42,15 +42,15 @@ class BiliBiliAccountService extends GetxService {
       );
       if (result["code"] == 0) {
         var info = BiliBiliUserInfoModel.fromJson(result["data"]);
-        name.value = info.uname ?? "未登录";
+        name.value = info.uname ?? "Chưa đăng nhập";
         uid = info.mid ?? 0;
         setSite();
       } else {
-        SmartDialog.showToast("哔哩哔哩登录已失效，请重新登录");
+        SmartDialog.showToast("Đăng nhập Bilibili đã hết hạn, vui lòng đăng nhập lại");
         logout();
       }
     } catch (e) {
-      SmartDialog.showToast("获取哔哩哔哩用户信息失败，可前往账号管理重试");
+      SmartDialog.showToast("Lấy thông tin người dùng Bilibili thất bại, có thể thử lại ở quản lý tài khoản");
     }
   }
 
@@ -70,7 +70,7 @@ class BiliBiliAccountService extends GetxService {
   void logout() async {
     cookie = "";
     uid = 0;
-    name.value = "未登录";
+    name.value = "Chưa đăng nhập";
     setSite();
     LocalStorageService.instance
         .setValue(LocalStorageService.kBilibiliCookie, "");

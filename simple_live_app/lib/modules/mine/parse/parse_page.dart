@@ -11,7 +11,7 @@ class ParsePage extends GetView<ParseController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("链接解析"),
+        title: const Text("Phân tích liên kết"),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -19,7 +19,7 @@ class ParsePage extends GetView<ParseController> {
           buildCard(
             context: context,
             child: ExpansionTile(
-              title: const Text("直播间跳转"),
+              title: const Text("Chuyển đến phòng livestream"),
               childrenPadding: AppStyle.edgeInsetsH12,
               initiallyExpanded: true,
               children: [
@@ -30,7 +30,7 @@ class ParsePage extends GetView<ParseController> {
                   textInputAction: TextInputAction.go,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    hintText: "输入或粘贴哔哩哔哩直播/虎牙直播/斗鱼直播/抖音直播的链接",
+                    hintText: "Nhập hoặc dán liên kết Bilibili Live/Huya Live/Douyu Live/Douyin Live",
                     contentPadding: AppStyle.edgeInsetsA12,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -49,7 +49,7 @@ class ParsePage extends GetView<ParseController> {
                           .jumpToRoom(controller.roomJumpToController.text);
                     },
                     icon: const Icon(Remix.play_circle_line),
-                    label: const Text("链接跳转"),
+                    label: const Text("Chuyển liên kết"),
                   ),
                 ),
               ],
@@ -58,7 +58,7 @@ class ParsePage extends GetView<ParseController> {
           buildCard(
             context: context,
             child: ExpansionTile(
-              title: const Text("获取直链"),
+              title: const Text("Lấy liên kết trực tiếp"),
               childrenPadding: AppStyle.edgeInsetsH12,
               initiallyExpanded: true,
               children: [
@@ -69,7 +69,7 @@ class ParsePage extends GetView<ParseController> {
                   textInputAction: TextInputAction.go,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    hintText: "输入或粘贴哔哩哔哩直播/虎牙直播/斗鱼直播/抖音直播的链接",
+                    hintText: "Nhập hoặc dán liên kết Bilibili Live/Huya Live/Douyu Live/Douyin Live",
                     contentPadding: AppStyle.edgeInsetsA12,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -87,7 +87,7 @@ class ParsePage extends GetView<ParseController> {
                       controller.getPlayUrl(controller.getUrlController.text);
                     },
                     icon: const Icon(Remix.link),
-                    label: const Text("获取直链"),
+                    label: const Text("Lấy liên kết trực tiếp"),
                   ),
                 ),
               ],
@@ -95,16 +95,16 @@ class ParsePage extends GetView<ParseController> {
           ),
           const Padding(
             padding: AppStyle.edgeInsetsV12,
-            child: SelectableText('''支持以下类型的链接解析：
-哔哩哔哩：
+            child: SelectableText('''Hỗ trợ phân tích các loại liên kết sau:
+Bilibili：
 https://live.bilibili.com/xxxxx
 https://b23.tv/xxxxx
-虎牙直播：
+Huya Live：
 https://www.huya.com/xxxxx
-斗鱼直播：
+Douyu Live：
 https://www.douyu.com/xxxxx
 https://www.douyu.com/topic/xxx?rid=xxx
-抖音直播：
+Douyin Live：
 https://v.douyin.com/xxxxx
 https://live.douyin.com/xxxxx
 https://webcast.amemv.com/webcast/reflow/xxxxx

@@ -26,7 +26,7 @@ class AppErrorWidget extends StatelessWidget {
                 repeat: false,
               ),
               Text(
-                "$errorMsg\r\n点击刷新",
+                "$errorMsg\r\nNhấn để làm mới",
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),

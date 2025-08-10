@@ -1,11 +1,11 @@
-在使用本软件之前，请您仔细阅读以下内容，并确保您充分理解并同意以下条款：
-1、本软件为开源软件，您可以免费获取并使用该软件。
-2、本软件完全基于您个人意愿使用，您应该对自己的使用行为和所有结果承担全部责任。
-3、本软件仅供学习交流、科研等非商业性质的用途，严禁将本软件用于商业目的。如有任何商业行为，均与本软件无关。
-4、本软件并不保证与所有操作系统或硬件设备兼容。本软件作者或贡献者不对因使用本软件而产生的任何技术或安全问题承担责任。
-5、本软件作者或贡献者不承担因使用本软件而造成的任何直接、间接、特殊或后果性的损失或损害的责任，包括但不限于财产损失、商业利润损失、信息或数据丢失或损坏等。
-6、本软件使用者应遵守国家相关法律法规和使用规范，不得利用本软件从事任何违法违规行为。如因使用本软件而导致的违法行为，使用者应承担相应的法律责任。
-7、本软件不会收集、存储、使用任何用户的个人信息，包括但不限于姓名、地址、电子邮件地址、电话号码等。在使用本软件过程中，不会进行任何形式的个人信息采集。如用户提供任何个人信息，将被视为用户已自愿提供，并且用户将自行承担由此产生的所有法律责任。
-8、本软件作者或贡献者保留随时修改、增加、删除本免责声明中的内容而不另行通知的权利。
-9、如果本软件存在侵犯您的合法权益的情况，请及时与作者联系，作者将会及时删除有关内容。
-如您不同意本免责声明中的任何内容，请勿使用本软件。使用本软件即代表您已完全理解并同意上述内容。
+Trước khi sử dụng phần mềm này, vui lòng đọc kỹ nội dung sau và đảm bảo bạn hiểu đầy đủ và đồng ý với các điều khoản sau:
+1. Phần mềm này là phần mềm mã nguồn mở, bạn có thể tải và sử dụng miễn phí.
+2. Phần mềm này hoàn toàn dựa trên ý muốn cá nhân của bạn để sử dụng, bạn nên chịu trách nhiệm hoàn toàn về hành vi sử dụng và tất cả kết quả của mình.
+3. Phần mềm này chỉ dành cho mục đích học tập, trao đổi, nghiên cứu khoa học và các mục đích phi thương mại khác, nghiêm cấm sử dụng phần mềm này cho mục đích thương mại. Bất kỳ hành vi thương mại nào đều không liên quan đến phần mềm này.
+4. Phần mềm này không đảm bảo tương thích với tất cả hệ điều hành hoặc thiết bị phần cứng. Tác giả hoặc người đóng góp phần mềm không chịu trách nhiệm về bất kỳ vấn đề kỹ thuật hoặc bảo mật nào phát sinh do việc sử dụng phần mềm này.
+5. Tác giả hoặc người đóng góp phần mềm không chịu trách nhiệm về bất kỳ tổn thất hoặc thiệt hại trực tiếp, gián tiếp, đặc biệt hoặc hậu quả nào do việc sử dụng phần mềm này gây ra, bao gồm nhưng không giới hạn ở tổn thất tài sản, mất lợi nhuận kinh doanh, mất hoặc hỏng thông tin hoặc dữ liệu, v.v.
+6. Người sử dụng phần mềm này phải tuân thủ các luật pháp và quy định sử dụng có liên quan của quốc gia, không được sử dụng phần mềm này để thực hiện bất kỳ hành vi vi phạm pháp luật nào. Nếu có hành vi vi phạm pháp luật do việc sử dụng phần mềm này, người sử dụng phải chịu trách nhiệm pháp lý tương ứng.
+7. Phần mềm này sẽ không thu thập, lưu trữ, sử dụng bất kỳ thông tin cá nhân nào của người dùng, bao gồm nhưng không giới hạn ở tên, địa chỉ, địa chỉ email, số điện thoại, v.v. Trong quá trình sử dụng phần mềm này, sẽ không có bất kỳ hình thức thu thập thông tin cá nhân nào. Nếu người dùng cung cấp bất kỳ thông tin cá nhân nào, sẽ được coi là người dùng đã tự nguyện cung cấp và người dùng sẽ tự chịu tất cả trách nhiệm pháp lý phát sinh từ đó.
+8. Tác giả hoặc người đóng góp phần mềm bảo lưu quyền sửa đổi, bổ sung, xóa nội dung trong tuyên bố miễn trách này bất cứ lúc nào mà không cần thông báo riêng.
+9. Nếu phần mềm này có vi phạm quyền lợi hợp pháp của bạn, vui lòng liên hệ với tác giả kịp thời, tác giả sẽ xóa nội dung liên quan kịp thời.
+Nếu bạn không đồng ý với bất kỳ nội dung nào trong tuyên bố miễn trách này, vui lòng không sử dụng phần mềm này. Việc sử dụng phần mềm này có nghĩa là bạn đã hiểu đầy đủ và đồng ý với nội dung trên.

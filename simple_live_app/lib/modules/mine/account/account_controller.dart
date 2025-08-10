@@ -9,7 +9,7 @@ import 'package:simple_live_app/services/bilibili_account_service.dart';
 class AccountController extends GetxController {
   void bilibiliTap() async {
     if (BiliBiliAccountService.instance.logined.value) {
-      var result = await Utils.showAlertDialog("确定要退出哔哩哔哩账号吗？", title: "退出登录");
+      var result = await Utils.showAlertDialog("Bạn có chắc chắn muốn đăng xuất tài khoản Bilibili không?", title: "Đăng xuất");
       if (result) {
         BiliBiliAccountService.instance.logout();
       }
@@ -21,7 +21,7 @@ class AccountController extends GetxController {
 
   void bilibiliLogin() {
     Utils.showBottomSheet(
-      title: "登录哔哩哔哩",
+      title: "Đăng nhập Bilibili",
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -29,8 +29,8 @@ class AccountController extends GetxController {
             visible: Platform.isAndroid || Platform.isIOS,
             child: ListTile(
               leading: const Icon(Icons.account_circle_outlined),
-              title: const Text("Web登录"),
-              subtitle: const Text("填写用户名密码登录"),
+              title: const Text("Đăng nhập Web"),
+              subtitle: const Text("Nhập tên người dùng và mật khẩu để đăng nhập"),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Get.back();
@@ -40,8 +40,8 @@ class AccountController extends GetxController {
           ),
           ListTile(
             leading: const Icon(Icons.qr_code),
-            title: const Text("扫码登录"),
-            subtitle: const Text("使用哔哩哔哩APP扫描二维码登录"),
+            title: const Text("Đăng nhập bằng QR"),
+            subtitle: const Text("Sử dụng ứng dụng Bilibili để quét mã QR đăng nhập"),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               Get.back();
@@ -50,8 +50,8 @@ class AccountController extends GetxController {
           ),
           ListTile(
             leading: const Icon(Icons.edit_outlined),
-            title: const Text("Cookie登录"),
-            subtitle: const Text("手动输入Cookie登录"),
+            title: const Text("Đăng nhập bằng Cookie"),
+            subtitle: const Text("Nhập Cookie thủ công để đăng nhập"),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               Get.back();
@@ -66,8 +66,8 @@ class AccountController extends GetxController {
   void doCookieLogin() async {
     var cookie = await Utils.showEditTextDialog(
       "",
-      title: "请输入Cookie",
-      hintText: "请输入Cookie",
+      title: "Vui lòng nhập Cookie",
+      hintText: "Vui lòng nhập Cookie",
     );
     if (cookie == null || cookie.isEmpty) {
       return;

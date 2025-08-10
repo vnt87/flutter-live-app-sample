@@ -14,7 +14,7 @@ class SyncPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("数据同步"),
+        title: const Text("Đồng bộ dữ liệu"),
         actions: [
           Visibility(
             visible: GetPlatform.isAndroid || GetPlatform.isIOS,
@@ -91,7 +91,7 @@ class SyncPage extends StatelessWidget {
                 ListTile(
                   title: const Text("WebDAV"),
                   leading: const Icon(Icons.cloud_upload_outlined),
-                  subtitle: const Text("通过WebDAV同步数据"),
+                  subtitle: const Text("Đồng bộ dữ liệu qua WebDAV"),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Get.toNamed(RoutePath.kRemoteSyncWebDav);

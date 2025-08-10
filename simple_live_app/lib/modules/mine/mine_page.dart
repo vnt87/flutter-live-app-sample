@@ -38,7 +38,7 @@ class MinePage extends StatelessWidget {
                 "Simple Live",
                 style: TextStyle(height: 1.0),
               ),
-              subtitle: const Text("简简单单看直播"),
+              subtitle: const Text("Xem livestream đơn giản"),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Get.dialog(AboutDialog(
@@ -48,7 +48,7 @@ class MinePage extends StatelessWidget {
                     height: 48,
                   ),
                   applicationName: "Simple Live",
-                  applicationVersion: "简简单单看直播",
+                  applicationVersion: "Xem livestream đơn giản",
                   applicationLegalese: "Ver ${Utils.packageInfo.version}",
                 ));
               },
@@ -63,7 +63,7 @@ class MinePage extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Remix.history_line),
-                  title: const Text("观看记录"),
+                  title: const Text("Lịch sử xem"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -81,7 +81,7 @@ class MinePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Remix.account_circle_line),
-              title: const Text("账号管理"),
+              title: const Text("Quản lý tài khoản"),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.grey,
@@ -97,7 +97,7 @@ class MinePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.devices),
-              title: const Text("数据同步"),
+              title: const Text("Đồng bộ dữ liệu"),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.grey,
@@ -113,7 +113,7 @@ class MinePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Remix.link),
-              title: const Text("链接解析"),
+              title: const Text("Phân tích liên kết"),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.grey,
@@ -132,7 +132,7 @@ class MinePage extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Remix.moon_line),
-                  title: const Text("外观设置"),
+                  title: const Text("Cài đặt giao diện"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -143,7 +143,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.home_2_line),
-                  title: const Text("主页设置"),
+                  title: const Text("Cài đặt trang chủ"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -154,7 +154,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.play_circle_line),
-                  title: const Text("直播设置"),
+                  title: const Text("Cài đặt livestream"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -165,7 +165,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.text),
-                  title: const Text("弹幕设置"),
+                  title: const Text("Cài đặt danmaku"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -176,7 +176,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.heart_line),
-                  title: const Text("关注设置"),
+                  title: const Text("Cài đặt theo dõi"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -187,7 +187,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.timer_2_line),
-                  title: const Text("定时关闭"),
+                  title: const Text("Tự động tắt"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -198,7 +198,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.apps_line),
-                  title: const Text("其他设置"),
+                  title: const Text("Cài đặt khác"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -210,7 +210,7 @@ class MinePage extends StatelessWidget {
                 if (kDebugMode)
                   ListTile(
                     leading: const Icon(Remix.apps_line),
-                    title: const Text("测试"),
+                    title: const Text("Kiểm tra"),
                     trailing: const Icon(
                       Icons.chevron_right,
                       color: Colors.grey,
@@ -235,7 +235,7 @@ class MinePage extends StatelessWidget {
               children: [
                 const ListTile(
                   leading: Icon(Remix.error_warning_line),
-                  title: Text("免责声明"),
+                  title: Text("Tuyên bố miễn trách"),
                   trailing: Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -244,7 +244,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.github_line),
-                  title: const Text("开源主页"),
+                  title: const Text("Trang chủ mã nguồn mở"),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,

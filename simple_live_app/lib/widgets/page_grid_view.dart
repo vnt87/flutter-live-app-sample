@@ -63,7 +63,7 @@ class PageGridView extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
-            child: // 加载更多按钮
+            child: // Nút tải thêm
                 Visibility(
               visible: (Platform.isWindows ||
                       Platform.isLinux ||
@@ -74,7 +74,7 @@ class PageGridView extends StatelessWidget {
               child: Center(
                 child: TextButton(
                   onPressed: pageController.loadData,
-                  child: const Text("加载更多"),
+                  child: const Text("Tải thêm"),
                 ),
               ),
             ),
@@ -82,7 +82,7 @@ class PageGridView extends StatelessWidget {
           Positioned(
             bottom: 12,
             right: 12,
-            child: // 加载更多按钮
+            child: // Nút tải thêm
                 Visibility(
               visible: (Platform.isWindows ||
                       Platform.isLinux ||

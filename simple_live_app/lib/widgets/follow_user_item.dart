@@ -94,7 +94,7 @@ class FollowUserItem extends StatelessWidget {
             Padding(
               padding: AppStyle.edgeInsetsL8,
               child: Text(
-                "正在观看",
+                "Đang xem",
                 style: TextStyle(
                   fontSize: 12,
                   color: Theme.of(context).colorScheme.primary,
@@ -106,7 +106,7 @@ class FollowUserItem extends StatelessWidget {
             Padding(
               padding: AppStyle.edgeInsetsL8,
               child: Text(
-                '开播了${formatLiveDuration(item.liveStartTime)}',
+                'Đã phát sóng ${formatLiveDuration(item.liveStartTime)}',
                 style: const TextStyle(
                   fontSize: 12,
                   color: Colors.grey,
@@ -139,11 +139,11 @@ class FollowUserItem extends StatelessWidget {
 
   String getStatus(int status) {
     if (status == 0) {
-      return "读取中";
+      return "Đang tải";
     } else if (status == 1) {
-      return "未开播";
+      return "Chưa phát sóng";
     } else {
-      return "直播中";
+      return "Đang phát sóng";
     }
   }
 
@@ -161,17 +161,17 @@ class FollowUserItem extends StatelessWidget {
       int hours = durationInSeconds ~/ 3600;
       int minutes = (durationInSeconds % 3600) ~/ 60;
 
-      String hourText = hours > 0 ? '${hours}小时' : '';
-      String minuteText = minutes > 0 ? '${minutes}分钟' : '';
+      String hourText = hours > 0 ? '${hours} giờ' : '';
+      String minuteText = minutes > 0 ? '${minutes} phút' : '';
 
       if (hours == 0 && minutes == 0) {
-        return "不足1分钟";
+        return "Dưới 1 phút";
       }
 
       return '$hourText$minuteText';
     } catch (e) {
-      print('格式化开播时长出错: $e');
-      return "--小时--分钟";
+      print('Lỗi định dạng thời lượng phát sóng: $e');
+      return "-- giờ -- phút";
     }
   }
 }

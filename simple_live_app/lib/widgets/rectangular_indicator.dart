@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 来自 https://github.com/adar2378/tab_indicator_styler
+/// Từ https://github.com/adar2378/tab_indicator_styler
 
 class RectangularIndicator extends Decoration {
   /// topRight radius of the indicator, default to 5.

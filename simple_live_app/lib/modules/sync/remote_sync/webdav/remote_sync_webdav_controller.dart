@@ -115,14 +115,14 @@ class RemoteSyncWebDAVController extends BaseController {
       Get.back();
       SmartDialog.showToast("登录成功！");
     } else {
-      SmartDialog.showToast("WebDAV账号密码验证失败，请重新输入！");
+      SmartDialog.showToast("Xác thực tài khoản WebDAV thất bại, vui lòng nhập lại!");
     }
   }
 
   // WebDAV登出
   @override
   Future<void> onLogout() async {
-    var result = await Utils.showAlertDialog("确定要登出WebDAV账号？", title: "退出登录");
+    var result = await Utils.showAlertDialog("Bạn có chắc chắn muốn đăng xuất tài khoản WebDAV?", title: "Đăng xuất");
     if (result) {
       // 清除本地账号数据
       LocalStorageService.instance.setValue(LocalStorageService.kWebDAVUri, "");
@@ -142,7 +142,7 @@ class RemoteSyncWebDAVController extends BaseController {
       if (value.isNotEmpty) {
         var result = await davClient.backup(Uint8List.fromList(value));
         if (result) {
-          SmartDialog.showToast("上传成功");
+          SmartDialog.showToast("Tải lên thành công");
           DateTime uploadTime = DateTime.now();
           lastUploadTime.value = Utils.parseTime(uploadTime);
           LocalStorageService.instance.setValue(
@@ -222,7 +222,7 @@ class RemoteSyncWebDAVController extends BaseController {
       profile.clearSync();
     } catch (e) {
       Log.logPrint(e);
-      SmartDialog.showToast("备份失败：$e");
+      SmartDialog.showToast("Sao lưu thất bại：$e");
     }
     return zipBytes;
   }
@@ -239,7 +239,7 @@ class RemoteSyncWebDAVController extends BaseController {
       await _recovery(file);
     }
     SmartDialog.dismiss();
-    SmartDialog.showToast('同步完成');
+    SmartDialog.showToast('Đồng bộ hoàn tất');
     DateTime recoverTime = DateTime.now();
     lastRecoverTime.value = Utils.parseTime(recoverTime);
     LocalStorageService.instance.setValue(

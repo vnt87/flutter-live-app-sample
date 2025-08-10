@@ -1,4 +1,4 @@
-> ### ⚠ 本项目不提供Release安装包，请自行编译后运行测试。
+> ### ⚠ Dự án này không cung cấp gói cài đặt Release, vui lòng tự biên dịch và chạy thử nghiệm.
 
 
 <p align="center">
@@ -7,14 +7,14 @@
 <h2 align="center">Simple Live</h2>
 
 <p align="center">
-简简单单的看直播
+Xem livestream đơn giản
 </p>
 
-![浅色模式](/assets/screenshot_light.jpg)
+![Chế độ sáng](/assets/screenshot_light.jpg)
 
-![深色模式](/assets/screenshot_dark.jpg)
+![Chế độ tối](/assets/screenshot_dark.jpg)
 
-## 支持直播平台：
+## Các nền tảng livestream được hỗ trợ:
 
 - 虎牙直播
 
@@ -24,7 +24,7 @@
 
 - 抖音直播
 
-## APP支持平台
+## Các nền tảng APP được hỗ trợ
 
 - [x] Android
 - [x] iOS
@@ -33,20 +33,20 @@
 - [x] Linux `BETA`
 - [x] Android TV `BETA`
 
-## 项目结构
+## Cấu trúc dự án
 
-- `simple_live_core` 项目核心库，实现获取各个网站的信息及弹幕。
-- `simple_live_console` 基于simple_live_core的控制台程序。
-- `simple_live_app` 基于核心库实现的Flutter APP客户端。
-- `simple_live_tv_app` 基于核心库实现的Flutter Android TV客户端。
+- `simple_live_core` Thư viện cốt lõi của dự án, thực hiện việc lấy thông tin và danmaku từ các trang web.
+- `simple_live_console` Chương trình console dựa trên simple_live_core.
+- `simple_live_app` Ứng dụng Flutter APP được thực hiện dựa trên thư viện cốt lõi.
+- `simple_live_tv_app` Ứng dụng Flutter Android TV được thực hiện dựa trên thư viện cốt lõi.
 
-## 环境
+## Môi trường
 
 Flutter : `3.22`
 
-## 参考及引用
+## Tham khảo và trích dẫn
 
-[AllLive](https://github.com/xiaoyaocz/AllLive) `本项目的C#版，有兴趣可以看看`
+[AllLive](https://github.com/xiaoyaocz/AllLive) `Phiên bản C# của dự án này, có thể xem nếu quan tâm`
 
 [dart_tars_protocol](https://github.com/xiaoyaocz/dart_tars_protocol.git)
 
@@ -64,10 +64,10 @@ Flutter : `3.22`
 
 [5ime/Tiktok_Signature](https://github.com/5ime/Tiktok_Signature)
 
-## 声明
+## Tuyên bố
 
-本项目的所有功能都是基于互联网上公开的资料开发，无任何破解、逆向工程等行为。
+Tất cả các tính năng của dự án này được phát triển dựa trên tài liệu công khai trên internet, không có bất kỳ hành vi crack, reverse engineering nào.
 
-本项目仅用于学习交流编程技术，严禁将本项目用于商业目的。如有任何商业行为，均与本项目无关。
+Dự án này chỉ được sử dụng để học tập và trao đổi kỹ thuật lập trình, nghiêm cấm sử dụng dự án này cho mục đích thương mại. Bất kỳ hành vi thương mại nào đều không liên quan đến dự án này.
 
-如果本项目存在侵犯您的合法权益的情况，请及时与开发者联系，开发者将会及时删除有关内容。
+Nếu dự án này có vi phạm quyền lợi hợp pháp của bạn, vui lòng liên hệ với nhà phát triển kịp thời, nhà phát triển sẽ xóa nội dung liên quan kịp thời.

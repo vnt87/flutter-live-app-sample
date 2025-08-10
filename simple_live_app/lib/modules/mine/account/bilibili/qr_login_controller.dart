@@ -26,12 +26,12 @@ class BiliBiliQRLoginController extends GetxController {
   var qrcodeUrl = "".obs;
   var qrcodeKey = "";
 
-  /// 二维码状态
-  /// - [0] 加载中
-  /// - [1] 未扫描
-  /// - [2] 已扫描，待确认
-  /// - [3] 二维码已经失效
-  /// - [4] 登录失败
+  /// Trạng thái mã QR
+  /// - [0] Đang tải
+  /// - [1] Chưa quét
+  /// - [2] Đã quét, chờ xác nhận
+  /// - [3] Mã QR đã hết hạn
+  /// - [4] Đăng nhập thất bại
   Rx<QRStatus> qrStatus = QRStatus.loading.obs;
 
   void loadQRCode() async {
