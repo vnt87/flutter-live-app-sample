@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:simple_live_app/app/app_style.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:simple_live_app/modules/search/search_list_controller.dart';
 import 'package:simple_live_app/routes/app_navigation.dart';
 import 'package:simple_live_app/widgets/keep_alive_wrapper.dart';
@@ -67,7 +68,7 @@ class SearchListView extends StatelessWidget {
                         ),
                         AppStyle.hGap4,
                         Text(
-                          item.liveStatus ? "直播中" : "未开播",
+                          item.liveStatus ? S.streaming : S.notStreaming,
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.normal,

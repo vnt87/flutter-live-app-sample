@@ -8,6 +8,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/controller/base_controller.dart';
 import 'package:simple_live_app/app/utils.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:simple_live_app/requests/sync_client_request.dart';
 import 'package:simple_live_app/routes/app_navigation.dart';
 import 'package:simple_live_app/routes/route_path.dart';
@@ -38,7 +39,7 @@ class LocalSyncController extends BaseController {
   void connect() async {
     var address = addressController.text;
     if (address.isEmpty) {
-      SmartDialog.showToast("请输入地址");
+      SmartDialog.showToast(S.pleaseInputAddress);
       return;
     }
     if (address.startsWith('http')) {
@@ -55,7 +56,7 @@ class LocalSyncController extends BaseController {
       id: 'manual',
       address: address,
       port: SyncService.httpPort,
-      name: "手动输入",
+      name: S.manualInput,
       type: Platform.operatingSystem,
     );
     connectClient(client);
@@ -110,7 +111,7 @@ class LocalSyncController extends BaseController {
 
   void showInfo() {
     Utils.showBottomSheet(
-      title: "本机信息",
+      title: S.deviceInfo,
       child: Column(
         children: [
           Visibility(

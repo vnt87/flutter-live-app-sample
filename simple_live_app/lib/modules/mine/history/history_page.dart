@@ -7,6 +7,7 @@ import 'package:simple_live_app/modules/mine/history/history_controller.dart';
 import 'package:simple_live_app/routes/app_navigation.dart';
 import 'package:simple_live_app/widgets/net_image.dart';
 import 'package:simple_live_app/widgets/page_grid_view.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class HistoryPage extends GetView<HistoryController> {
   const HistoryPage({Key? key}) : super(key: key);
@@ -17,12 +18,12 @@ class HistoryPage extends GetView<HistoryController> {
     if (rowCount < 1) rowCount = 1;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("观看记录"),
+        title: Text(S.watchHistory),
         actions: [
           TextButton.icon(
             onPressed: controller.clean,
             icon: const Icon(Icons.delete_outline),
-            label: const Text("清空"),
+            label: Text(S.clear),
           ),
         ],
       ),
@@ -47,7 +48,7 @@ class HistoryPage extends GetView<HistoryController> {
               ),
             ),
             confirmDismiss: (direction) async {
-              return await Utils.showAlertDialog("确定要删除此记录吗?", title: "删除记录");
+              return await Utils.showAlertDialog(S.confirmDeleteRecord, title: S.deleteRecord);
             },
             onDismissed: (_) {
               controller.removeItem(item);
@@ -91,7 +92,7 @@ class HistoryPage extends GetView<HistoryController> {
               },
               onLongPress: () async {
                 var result =
-                    await Utils.showAlertDialog("确定要删除此记录吗?", title: "删除记录");
+                    await Utils.showAlertDialog(S.confirmDeleteRecord, title: S.deleteRecord);
                 if (!result) {
                   return;
                 }

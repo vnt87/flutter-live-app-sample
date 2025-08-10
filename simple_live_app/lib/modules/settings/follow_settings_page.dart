@@ -46,7 +46,7 @@ class FollowSettingsPage extends GetView<AppSettingsController> {
                     child: SettingsAction(
                       title: S.autoUpdateInterval,
                       value:
-                          "${controller.autoUpdateFollowDuration.value ~/ 60}小时${controller.autoUpdateFollowDuration.value % 60}分钟",
+                          S.timeFormat(controller.autoUpdateFollowDuration.value ~/ 60, controller.autoUpdateFollowDuration.value % 60),
                       onTap: () {
                         setTimer(context);
                       },

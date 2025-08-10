@@ -4,6 +4,7 @@ import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/sites.dart';
 import 'package:simple_live_app/modules/search/search_controller.dart';
 import 'package:simple_live_app/modules/search/search_list_view.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class SearchPage extends GetView<AppSearchController> {
   const SearchPage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class SearchPage extends GetView<AppSearchController> {
           controller: controller.searchController,
           autofocus: true,
           decoration: InputDecoration(
-            hintText: "搜点什么吧",
+            hintText: S.searchHint,
             border: OutlineInputBorder(
               borderRadius: AppStyle.radius24,
             ),
@@ -32,14 +33,14 @@ class SearchPage extends GetView<AppSearchController> {
                 Obx(
                   () => DropdownButton<int>(
                     underline: const SizedBox(),
-                    items: const [
+                    items: [
                       DropdownMenuItem(
                         value: 0,
-                        child: Text("房间"),
+                        child: Text(S.room),
                       ),
                       DropdownMenuItem(
                         value: 1,
-                        child: Text("主播"),
+                        child: Text(S.streamer),
                       ),
                     ],
                     value: controller.searchMode.value,

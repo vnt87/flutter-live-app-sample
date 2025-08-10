@@ -12,6 +12,7 @@ import 'package:simple_live_app/services/follow_service.dart';
 import 'package:simple_live_app/widgets/filter_button.dart';
 import 'package:simple_live_app/widgets/follow_user_item.dart';
 import 'package:simple_live_app/widgets/page_grid_view.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class FollowUserPage extends GetView<FollowUserController> {
   const FollowUserPage({Key? key}) : super(key: key);
@@ -22,11 +23,11 @@ class FollowUserPage extends GetView<FollowUserController> {
     if (count < 1) count = 1;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("关注用户"),
+        title: Text(S.followUsers),
         actions: [
           PopupMenuButton(
             itemBuilder: (context) {
-              return const [
+              return [
                 PopupMenuItem(
                   value: 0,
                   child: Row(
@@ -34,7 +35,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                     children: [
                       Icon(Remix.save_2_line),
                       AppStyle.hGap12,
-                      Text("导出文件")
+                      Text(S.exportFile)
                     ],
                   ),
                 ),
@@ -45,7 +46,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                     children: [
                       Icon(Remix.folder_open_line),
                       AppStyle.hGap12,
-                      Text("导入文件")
+                      Text(S.importFile)
                     ],
                   ),
                 ),
@@ -56,7 +57,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                     children: [
                       Icon(Remix.text),
                       AppStyle.hGap12,
-                      Text("导出文本"),
+                      Text(S.exportText),
                     ],
                   ),
                 ),
@@ -67,7 +68,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                     children: [
                       Icon(Remix.file_text_line),
                       AppStyle.hGap12,
-                      Text("导入文本"),
+                      Text(S.importText),
                     ],
                   ),
                 ),
@@ -78,7 +79,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                     children: [
                       Icon(Remix.price_tag_line),
                       AppStyle.hGap12,
-                      Text("标签管理"),
+                      Text(S.tagManagement),
                     ],
                   ),
                 ),
@@ -202,8 +203,8 @@ class FollowUserPage extends GetView<FollowUserController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '设置标签',
+                Text(
+                  S.setTag,
                   style: TextStyle(
                     fontSize: 18,
                   ),
@@ -270,17 +271,17 @@ class FollowUserPage extends GetView<FollowUserController> {
 
   void showTagsManager() {
     Utils.showBottomSheet(
-      title: '标签管理',
+      title: S.tagManagement,
       child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             AppStyle.divider,
             ListTile(
-              title: const Text("添加标签"),
+              title: Text(S.addTag),
               leading: const Icon(Icons.add),
               onTap: () {
-                editTagDialog("添加标签");
+                editTagDialog(S.addTag);
               },
             ),
             AppStyle.divider,
@@ -298,7 +299,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                         child: Text(item.tag),
                         onLongPress: () {
                           {
-                            editTagDialog("修改标签", followUserTag: item);
+                            editTagDialog(S.editTag, followUserTag: item);
                           }
                         },
                       ),
@@ -323,7 +324,7 @@ class FollowUserPage extends GetView<FollowUserController> {
   void editTagDialog(String title, {FollowUserTag? followUserTag}) {
     final TextEditingController tagEditController =
     TextEditingController(text: followUserTag?.tag);
-    bool upMode = title == "添加标签" ? true : false;
+    bool upMode = title == S.addTag ? true : false;
     Get.dialog(
       AlertDialog(
         contentPadding: const EdgeInsets.all(16.0),
@@ -373,7 +374,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                       onPressed: () {
                         Get.back();
                       },
-                      child: const Text('否'),
+                      child: Text(S.no),
                     ),
                     TextButton(
                       onPressed: () {
@@ -383,7 +384,7 @@ class FollowUserPage extends GetView<FollowUserController> {
                             followUserTag!, tagEditController.text);
                         Get.back();
                       },
-                      child: const Text('是'),
+                      child: Text(S.yes),
                     ),
                   ],
                 ),

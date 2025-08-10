@@ -4,6 +4,7 @@ import 'package:remixicon/remixicon.dart';
 import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/modules/sync/local_sync/device/sync_device_controller.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class SyncDevicePage extends GetView<SyncDeviceController> {
   const SyncDevicePage({super.key});
@@ -12,7 +13,7 @@ class SyncDevicePage extends GetView<SyncDeviceController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("同步"),
+        title: Text(S.sync),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
@@ -31,7 +32,7 @@ class SyncDevicePage extends GetView<SyncDeviceController> {
               children: [
                 ListTile(
                   leading: const Icon(Remix.heart_line),
-                  title: const Text("同步关注列表"),
+                  title: Text(S.syncFollowList),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     controller.syncFollowAndTag();
@@ -40,7 +41,7 @@ class SyncDevicePage extends GetView<SyncDeviceController> {
                 AppStyle.divider,
                 ListTile(
                   leading: const Icon(Icons.history),
-                  title: const Text("同步观看记录"),
+                  title: Text(S.syncHistory),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     controller.syncHistory();
@@ -49,7 +50,7 @@ class SyncDevicePage extends GetView<SyncDeviceController> {
                 AppStyle.divider,
                 ListTile(
                   leading: const Icon(Remix.shield_keyhole_line),
-                  title: const Text("同步弹幕屏蔽词"),
+                  title: Text(S.syncBlockedWords),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     controller.syncBlockedWord();
@@ -58,7 +59,7 @@ class SyncDevicePage extends GetView<SyncDeviceController> {
                 AppStyle.divider,
                 ListTile(
                   leading: const Icon(Remix.account_circle_line),
-                  title: const Text("同步哔哩哔哩账号"),
+                  title: Text(S.syncBilibiliAccount),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     controller.syncBiliAccount();

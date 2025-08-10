@@ -7,6 +7,7 @@ import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/modules/sync/local_sync/local_sync_controller.dart';
 import 'package:simple_live_app/services/sync_service.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class LocalSyncPage extends GetView<LocalSyncController> {
   const LocalSyncPage({super.key});
@@ -15,12 +16,12 @@ class LocalSyncPage extends GetView<LocalSyncController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('局域网数据同步'),
+        title: Text(S.localSync),
         actions: [
           TextButton.icon(
             onPressed: controller.showInfo,
             icon: const Icon(Icons.qr_code),
-            label: const Text("信息"),
+            label: Text(S.info),
           ),
         ],
       ),
@@ -40,8 +41,8 @@ class LocalSyncPage extends GetView<LocalSyncController> {
                       controller.connect();
                     },
                     decoration: InputDecoration(
-                      labelText: '客户端地址',
-                      hintText: '请输入地址或扫码自动填写',
+                      labelText: S.clientAddress,
+                      hintText: S.enterAddressOrScan,
                       contentPadding: AppStyle.edgeInsetsH12,
                       border: const OutlineInputBorder(),
                       suffixIcon: Visibility(
@@ -49,7 +50,7 @@ class LocalSyncPage extends GetView<LocalSyncController> {
                         child: TextButton.icon(
                           onPressed: controller.toScanQr,
                           icon: const Icon(Remix.qr_scan_line),
-                          label: const Text("扫一扫"),
+                          label: Text(S.scan),
                         ),
                       ),
                     ),
@@ -59,7 +60,7 @@ class LocalSyncPage extends GetView<LocalSyncController> {
                     onPressed: () {
                       controller.connect();
                     },
-                    child: const Text("连接"),
+                    child: Text(S.connect),
                   ),
                 ],
               ),
@@ -69,7 +70,7 @@ class LocalSyncPage extends GetView<LocalSyncController> {
           ListTile(
             title: Obx(
               () => Text(
-                "已发现设备(${SyncService.instance.scanClients.length})",
+"${S.discoveredDevices}(${SyncService.instance.scanClients.length})",
                 style: Get.textTheme.titleSmall,
               ),
             ),
@@ -107,8 +108,8 @@ class LocalSyncPage extends GetView<LocalSyncController> {
             ),
           ),
           AppStyle.vGap12,
-          const Text(
-            "如果无法扫描到设备，请手动输入地址",
+          Text(
+            S.manualAddressHint,
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.grey,

@@ -5,6 +5,7 @@ import 'package:simple_live_app/app/controller/app_settings_controller.dart';
 import 'package:simple_live_app/widgets/settings/settings_action.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class AutoExitSettingsPage extends GetView<AppSettingsController> {
   const AutoExitSettingsPage({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class AutoExitSettingsPage extends GetView<AppSettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("定时关闭设置"),
+        title: Text(S.autoExitSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -24,7 +25,7 @@ class AutoExitSettingsPage extends GetView<AppSettingsController> {
                 Obx(
                   () => SettingsSwitch(
                     value: controller.autoExitEnable.value,
-                    title: "启用定时关闭",
+                    title: S.enableAutoExit,
                     onChanged: (e) {
                       controller.setAutoExitEnable(e);
                     },
@@ -40,10 +41,10 @@ class AutoExitSettingsPage extends GetView<AppSettingsController> {
                   () => Visibility(
                     visible: controller.autoExitEnable.value,
                     child: SettingsAction(
-                      title: "自动关闭时间",
+                      title: S.autoExitTime,
                       value:
-                          "${controller.autoExitDuration.value ~/ 60}小时${controller.autoExitDuration.value % 60}分钟",
-                      subtitle: "从进入直播间开始倒计时",
+                          S.timeFormat(controller.autoExitDuration.value ~/ 60, controller.autoExitDuration.value % 60),
+                      subtitle: S.autoExitSubtitle,
                       onTap: () {
                         setTimer(context);
                       },

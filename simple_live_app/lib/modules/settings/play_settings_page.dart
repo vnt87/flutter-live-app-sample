@@ -8,6 +8,7 @@ import 'package:simple_live_app/widgets/settings/settings_card.dart';
 import 'package:simple_live_app/widgets/settings/settings_menu.dart';
 import 'package:simple_live_app/widgets/settings/settings_number.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class PlaySettingsPage extends GetView<AppSettingsController> {
   const PlaySettingsPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("直播间设置"),
+        title: Text(S.liveRoomSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -24,7 +25,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
             child: Text(
-              "播放器",
+              S.player,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -34,9 +35,9 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
               children: [
                 Obx(
                   () => SettingsSwitch(
-                    title: "硬件解码",
+                    title: S.hardwareDecode,
                     value: controller.hardwareDecode.value,
-                    subtitle: "播放失败可尝试关闭此选项",
+                    subtitle: S.hardwareDecodeSubtitle,
                     onChanged: (e) {
                       controller.setHardwareDecode(e);
                     },
@@ -47,8 +48,8 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                   () => Visibility(
                     visible: Platform.isAndroid,
                     child: SettingsSwitch(
-                      title: "兼容模式",
-                      subtitle: "若播放卡顿可尝试打开此选项",
+                      title: S.compatibilityMode,
+                      subtitle: S.compatibilityModeSubtitle,
                       value: controller.playerCompatMode.value,
                       onChanged: (e) {
                         controller.setPlayerCompatMode(e);
@@ -74,7 +75,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsSwitch(
-                    title: "进入后台自动暂停",
+                    title: S.autoPauseInBackground,
                     value: controller.playerAutoPause.value,
                     onChanged: (e) {
                       controller.setPlayerAutoPause(e);
@@ -84,12 +85,12 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsMenu<int>(
-                    title: "画面尺寸",
+                    title: S.screenSize,
                     value: controller.scaleMode.value,
-                    valueMap: const {
-                      0: "适应",
-                      1: "拉伸",
-                      2: "铺满",
+                    valueMap: {
+                      0: S.fit,
+                      1: S.stretch,
+                      2: S.fill,
                       3: "16:9",
                       4: "4:3",
                     },
@@ -101,8 +102,8 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsSwitch(
-                    title: "使用HTTPS链接",
-                    subtitle: "将http链接替换为https",
+                    title: S.useHttpsLinks,
+                    subtitle: S.useHttpsLinksSubtitle,
                     value: controller.playerForceHttps.value,
                     onChanged: (e) {
                       controller.setPlayerForceHttps(e);
@@ -115,7 +116,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "直播间",
+              S.liveRoom,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -125,7 +126,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
               children: [
                 Obx(
                   () => SettingsSwitch(
-                    title: "进入直播间自动全屏",
+                    title: S.autoFullScreenOnEnter,
                     value: controller.autoFullScreen.value,
                     onChanged: (e) {
                       controller.setAutoFullScreen(e);
@@ -137,7 +138,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                   () => Visibility(
                     visible: Platform.isAndroid,
                     child: SettingsSwitch(
-                      title: "进入小窗隐藏弹幕",
+                      title: S.hideDanmuInPip,
                       value: controller.pipHideDanmu.value,
                       onChanged: (e) {
                         controller.setPIPHideDanmu(e);
@@ -151,7 +152,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "清晰度",
+              S.quality,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -160,12 +161,12 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
               children: [
                 Obx(
                   () => SettingsMenu<int>(
-                    title: "默认清晰度",
+                    title: S.defaultQuality,
                     value: controller.qualityLevel.value,
-                    valueMap: const {
-                      0: "最低",
-                      1: "中等",
-                      2: "最高",
+                    valueMap: {
+                      0: S.lowest,
+                      1: S.medium,
+                      2: S.highest,
                     },
                     onChanged: (e) {
                       controller.setQualityLevel(e);
@@ -175,12 +176,12 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsMenu<int>(
-                    title: "数据网络清晰度",
+                    title: S.cellularQuality,
                     value: controller.qualityLevelCellular.value,
-                    valueMap: const {
-                      0: "最低",
-                      1: "中等",
-                      2: "最高",
+                    valueMap: {
+                      0: S.lowest,
+                      1: S.medium,
+                      2: S.highest,
                     },
                     onChanged: (e) {
                       controller.setQualityLevelCellular(e);
@@ -193,7 +194,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "聊天区",
+              S.chatArea,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -203,7 +204,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
               children: [
                 Obx(
                   () => SettingsNumber(
-                    title: "文字大小",
+                    title: S.textSize,
                     value: controller.chatTextSize.value.toInt(),
                     min: 8,
                     max: 36,
@@ -215,7 +216,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsNumber(
-                    title: "上下间隔",
+                    title: S.verticalSpacing,
                     value: controller.chatTextGap.value.toInt(),
                     min: 0,
                     max: 12,
@@ -227,7 +228,7 @@ class PlaySettingsPage extends GetView<AppSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsSwitch(
-                    title: "气泡样式",
+                    title: S.bubbleStyle,
                     value: controller.chatBubbleStyle.value,
                     onChanged: (e) {
                       controller.setChatBubbleStyle(e);

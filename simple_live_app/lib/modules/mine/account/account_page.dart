@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/modules/mine/account/account_controller.dart';
 import 'package:simple_live_app/services/bilibili_account_service.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class AccountPage extends GetView<AccountController> {
   const AccountPage({Key? key}) : super(key: key);
@@ -11,14 +12,14 @@ class AccountPage extends GetView<AccountController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Quản lý tài khoản"),
+        title: Text(S.accountManagement),
       ),
       body: ListView(
         children: [
-          const Padding(
+          Padding(
             padding: AppStyle.edgeInsetsA12,
             child: Text(
-              "Tài khoản Bilibili cần đăng nhập để xem livestream chất lượng cao, các nền tảng khác hiện không có giới hạn này.",
+              S.bilibiliAccountInfo,
               textAlign: TextAlign.center,
             ),
           ),
@@ -44,7 +45,7 @@ class AccountPage extends GetView<AccountController> {
               height: 36,
             ),
             title: const Text("Douyu Live"),
-            subtitle: const Text("Không cần đăng nhập"),
+            subtitle: Text(S.noLoginRequired),
             enabled: false,
             trailing: const Icon(Icons.chevron_right),
           ),
@@ -55,7 +56,7 @@ class AccountPage extends GetView<AccountController> {
               height: 36,
             ),
             title: const Text("Huya Live"),
-            subtitle: const Text("Không cần đăng nhập"),
+            subtitle: Text(S.noLoginRequired),
             enabled: false,
             trailing: const Icon(Icons.chevron_right),
           ),
@@ -66,7 +67,7 @@ class AccountPage extends GetView<AccountController> {
               height: 36,
             ),
             title: const Text("Douyin Live"),
-            subtitle: const Text("无需登录"),
+            subtitle: Text(S.noLoginRequired),
             enabled: false,
             trailing: const Icon(Icons.chevron_right),
           ),

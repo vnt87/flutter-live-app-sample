@@ -6,6 +6,7 @@ import 'package:remixicon/remixicon.dart';
 import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/log.dart';
 import 'package:simple_live_app/app/utils.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:simple_live_app/routes/route_path.dart';
 import 'package:simple_live_app/services/signalr_service.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -38,7 +39,7 @@ class MinePage extends StatelessWidget {
                 "Simple Live",
                 style: TextStyle(height: 1.0),
               ),
-              subtitle: const Text("Xem livestream đơn giản"),
+              subtitle: Text(S.appSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Get.dialog(AboutDialog(
@@ -48,7 +49,7 @@ class MinePage extends StatelessWidget {
                     height: 48,
                   ),
                   applicationName: "Simple Live",
-                  applicationVersion: "Xem livestream đơn giản",
+                  applicationVersion: S.appSubtitle,
                   applicationLegalese: "Ver ${Utils.packageInfo.version}",
                 ));
               },
@@ -63,7 +64,7 @@ class MinePage extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Remix.history_line),
-                  title: const Text("Lịch sử xem"),
+                  title: Text(S.watchHistory),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -81,7 +82,7 @@ class MinePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Remix.account_circle_line),
-              title: const Text("Quản lý tài khoản"),
+              title: Text(S.accountManagement),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.grey,
@@ -97,7 +98,7 @@ class MinePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.devices),
-              title: const Text("Đồng bộ dữ liệu"),
+              title: Text(S.syncData),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.grey,
@@ -113,7 +114,7 @@ class MinePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Remix.link),
-              title: const Text("Phân tích liên kết"),
+              title: Text(S.linkAnalysis),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: Colors.grey,
@@ -132,7 +133,7 @@ class MinePage extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Remix.moon_line),
-                  title: const Text("Cài đặt giao diện"),
+                  title: Text(S.appearanceSettings),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -143,7 +144,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.home_2_line),
-                  title: const Text("Cài đặt trang chủ"),
+                  title: Text(S.homepageSettings),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -154,7 +155,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.play_circle_line),
-                  title: const Text("Cài đặt livestream"),
+                  title: Text(S.liveStreamSettings),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -165,7 +166,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.text),
-                  title: const Text("Cài đặt danmaku"),
+                  title: Text(S.danmuSettings),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -176,7 +177,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.heart_line),
-                  title: const Text("Cài đặt theo dõi"),
+                  title: Text(S.followSettings),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -187,7 +188,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.timer_2_line),
-                  title: const Text("Tự động tắt"),
+                  title: Text(S.autoExit),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -198,7 +199,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.apps_line),
-                  title: const Text("Cài đặt khác"),
+                  title: Text(S.otherSettings),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -210,7 +211,7 @@ class MinePage extends StatelessWidget {
                 if (kDebugMode)
                   ListTile(
                     leading: const Icon(Remix.apps_line),
-                    title: const Text("Kiểm tra"),
+                    title: Text(S.test),
                     trailing: const Icon(
                       Icons.chevron_right,
                       color: Colors.grey,
@@ -233,9 +234,9 @@ class MinePage extends StatelessWidget {
             _buildCard(
               context,
               children: [
-                const ListTile(
+                ListTile(
                   leading: Icon(Remix.error_warning_line),
-                  title: Text("Tuyên bố miễn trách"),
+                  title: Text(S.disclaimer),
                   trailing: Icon(
                     Icons.chevron_right,
                     color: Colors.grey,
@@ -244,7 +245,7 @@ class MinePage extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Remix.github_line),
-                  title: const Text("Trang chủ mã nguồn mở"),
+                  title: Text(S.openSourceHomepage),
                   trailing: const Icon(
                     Icons.chevron_right,
                     color: Colors.grey,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:simple_live_app/modules/sync/local_sync/scan_qr/sync_scan_qr_controller.dart';
 
 class SyncScanQRPage extends GetView<SyncScanQRControlelr> {
@@ -14,14 +14,14 @@ class SyncScanQRPage extends GetView<SyncScanQRControlelr> {
         actions: [
           IconButton(
             onPressed: () {
-              controller.qrController?.toggleFlash();
+              controller.toggleFlash();
             },
             icon: const Icon(Icons.flash_on),
           ),
           // 反转摄像头
           IconButton(
             onPressed: () {
-              controller.qrController?.flipCamera();
+              controller.switchCamera();
             },
             icon: const Icon(Icons.flip_camera_android),
           ),
@@ -29,9 +29,8 @@ class SyncScanQRPage extends GetView<SyncScanQRControlelr> {
       ),
       body: Stack(
         children: [
-          QRView(
-            key: controller.qrKey,
-            onQRViewCreated: controller.onQRViewCreated,
+          MobileScanner(
+            controller: controller.scannerController,
           ),
           const ScanRectangle(),
         ],

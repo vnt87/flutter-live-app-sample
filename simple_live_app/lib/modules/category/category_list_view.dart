@@ -3,6 +3,7 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import 'package:get/get.dart';
 import 'package:simple_live_app/app/app_style.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:simple_live_app/modules/category/category_list_controller.dart';
 import 'package:simple_live_app/routes/app_navigation.dart';
 import 'package:simple_live_app/widgets/keep_alive_wrapper.dart';
@@ -109,9 +110,9 @@ class CategoryListView extends StatelessWidget {
       onTap: () {
         item.showAll.value = true;
       },
-      child: const Center(
+      child: Center(
         child: Text(
-          "显示全部",
+          S.showAll,
           maxLines: 1,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 12),

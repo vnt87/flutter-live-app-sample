@@ -11,17 +11,18 @@ import 'package:simple_live_app/models/db/follow_user.dart';
 import 'package:simple_live_app/models/db/follow_user_tag.dart';
 import 'package:simple_live_app/services/db_service.dart';
 import 'package:simple_live_app/services/follow_service.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class FollowUserController extends BasePageController<FollowUser> {
   StreamSubscription<dynamic>? onUpdatedIndexedStream;
   StreamSubscription<dynamic>? onUpdatedListStream;
 
   /// 0:全部 1:直播中 2:未直播
-  var filterMode = FollowUserTag(id: "0", tag: "全部", userId: []).obs;
+  var filterMode = FollowUserTag(id: "0", tag: S.all, userId: []).obs;
   RxList<FollowUserTag> tagList = [
-    FollowUserTag(id: "0", tag: "全部", userId: []),
-    FollowUserTag(id: "1", tag: "直播中", userId: []),
-    FollowUserTag(id: "2", tag: "未开播", userId: []),
+    FollowUserTag(id: "0", tag: S.all, userId: []),
+    FollowUserTag(id: "1", tag: S.living, userId: []),
+    FollowUserTag(id: "2", tag: S.notLiving, userId: []),
   ].obs;
 
   // 用户自定义标签
@@ -56,11 +57,11 @@ class FollowUserController extends BasePageController<FollowUser> {
     if (page > 1) {
       return Future.value([]);
     }
-    if (filterMode.value.tag == "全部") {
+    if (filterMode.value.tag == S.all) {
       return FollowService.instance.followList.value;
-    } else if (filterMode.value.tag == "直播中") {
+    } else if (filterMode.value.tag == S.living) {
       return FollowService.instance.liveList.value;
-    } else if (filterMode.value.tag == "未开播") {
+    } else if (filterMode.value.tag == S.notLiving) {
       return FollowService.instance.notLiveList.value;
     } else {
       FollowService.instance.filterDataByTag(filterMode.value);
@@ -79,11 +80,11 @@ class FollowUserController extends BasePageController<FollowUser> {
   }
 
   void filterData() {
-    if (filterMode.value.tag == "全部") {
+    if (filterMode.value.tag == S.all) {
       list.assignAll(FollowService.instance.followList.value);
-    } else if (filterMode.value.tag == "直播中") {
+    } else if (filterMode.value.tag == S.living) {
       list.assignAll(FollowService.instance.liveList.value);
-    } else if (filterMode.value.tag == "未开播") {
+    } else if (filterMode.value.tag == S.notLiving) {
       list.assignAll(FollowService.instance.notLiveList.value);
     } else {
       FollowService.instance.filterDataByTag(filterMode.value);
@@ -98,12 +99,12 @@ class FollowUserController extends BasePageController<FollowUser> {
 
   void removeItem(FollowUser item) async {
     var result =
-    await Utils.showAlertDialog("确定要取消关注${item.userName}吗?", title: "取消关注");
+    await Utils.showAlertDialog(S.confirmUnfollowUser.replaceAll('{user}', item.userName), title: S.unfollow);
     if (!result) {
       return;
     }
     // 取消关注同时删除标签内的 userId
-    if(item.tag != "全部"){
+    if(item.tag != S.all){
       var tag = tagList.firstWhere((tag) => tag.tag == item.tag);
       tag.userId.remove(item.id);
       updateTag(tag);
@@ -136,7 +137,7 @@ class FollowUserController extends BasePageController<FollowUser> {
     for(var i in tag.userId){
       var follow = DBService.instance.followBox.get(i);
       if(follow != null){
-        follow.tag = "全部";
+        follow.tag = S.all;
         updateItem(follow);
       }
     }
@@ -152,7 +153,7 @@ class FollowUserController extends BasePageController<FollowUser> {
   }
 
   void updateTag(FollowUserTag followUserTag) {
-    if(followUserTag.tag == '全部'){
+    if(followUserTag.tag == S.all){
       return;
     }
     FollowService.instance.updateFollowUserTag(followUserTag);
@@ -165,12 +166,12 @@ class FollowUserController extends BasePageController<FollowUser> {
     }
     // 避免重名
     if (tagList.any((item) => item.tag == tag)) {
-      SmartDialog.showToast("标签名重复，修改失败");
+      SmartDialog.showToast(S.tagNameDuplicate);
       return;
     }
     final FollowUserTag item = followUserTag.copyWith(tag: tag);
     updateTag(item);
-    SmartDialog.showToast("修改成功");
+    SmartDialog.showToast(S.modifySuccess);
     updateTagList();
   }
 

@@ -3,36 +3,44 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:simple_live_app/app/controller/base_controller.dart';
 import 'package:simple_live_app/app/log.dart';
 import 'package:simple_live_app/app/utils.dart';
 import 'package:simple_live_app/routes/route_path.dart';
 
 class SyncScanQRControlelr extends BaseController {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController? qrController;
-  StreamSubscription<Barcode>? barcodeStreamSubscription;
+  final MobileScannerController scannerController = MobileScannerController();
+  StreamSubscription<BarcodeCapture>? barcodeStreamSubscription;
   bool pause = false;
-  void onQRViewCreated(QRViewController controller) {
-    qrController = controller;
-    barcodeStreamSubscription =
-        qrController!.scannedDataStream.listen((scanData) async {
-      Log.d(scanData.toString());
+
+  @override
+  void onInit() {
+    super.onInit();
+    initScanner();
+  }
+
+  void initScanner() {
+    barcodeStreamSubscription = scannerController.barcodes.listen((barcodeCapture) async {
       if (pause) {
         return;
       }
-      pause = true;
-      // 扫码成功后暂停摄像头
-      await controller.pauseCamera();
-      var code = scanData.code ?? "";
-      // 处理扫码结果
-      if (code.isEmpty) {
-        pause = false;
-        await controller.resumeCamera();
+      
+      if (barcodeCapture.barcodes.isEmpty) {
         return;
       }
-
+      
+      final barcode = barcodeCapture.barcodes.first;
+      final code = barcode.rawValue ?? "";
+      
+      Log.d(code);
+      
+      if (code.isEmpty) {
+        return;
+      }
+      
+      pause = true;
+      
       // 如果是5位字符串，为房间号
       if (code.length == 5) {
         Get.offAndToNamed(RoutePath.kRemoteSyncRoom, arguments: code);
@@ -47,6 +55,14 @@ class SyncScanQRControlelr extends BaseController {
         }
       }
     });
+  }
+
+  void toggleFlash() {
+    scannerController.toggleTorch();
+  }
+
+  void switchCamera() {
+    scannerController.switchCamera();
   }
 
   void showPickerAddress(List<String> addressList) async {
@@ -73,8 +89,7 @@ class SyncScanQRControlelr extends BaseController {
   @override
   void onClose() {
     barcodeStreamSubscription?.cancel();
-    qrController?.dispose();
-
+    scannerController.dispose();
     super.onClose();
   }
 }

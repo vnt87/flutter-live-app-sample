@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/modules/settings/danmu_shield/danmu_shield_controller.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class DanmuShieldPage extends GetView<DanmuShieldController> {
   const DanmuShieldPage({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class DanmuShieldPage extends GetView<DanmuShieldController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("弹幕屏蔽"),
+        title: Text(S.danmuShield),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -20,11 +21,11 @@ class DanmuShieldPage extends GetView<DanmuShieldController> {
             decoration: InputDecoration(
               contentPadding: AppStyle.edgeInsetsH12,
               border: const OutlineInputBorder(),
-              hintText: "请输入关键词或正则表达式",
+              hintText: S.enterKeywordOrRegex,
               suffixIcon: TextButton.icon(
                 onPressed: controller.add,
                 icon: const Icon(Icons.add),
-                label: const Text("添加"),
+                label: Text(S.add),
               ),
             ),
             onSubmitted: (e) {
@@ -33,13 +34,13 @@ class DanmuShieldPage extends GetView<DanmuShieldController> {
           ),
           AppStyle.vGap4,
           Text(
-            '以"/"开头和结尾将视作正则表达式, 如"/\\d+/"表示屏蔽所有数字',
+            S.regexHint,
             style: Get.textTheme.bodySmall,
           ),
           AppStyle.vGap12,
           Obx(
             () => Text(
-              "已添加${controller.settingsController.shieldList.length}个关键词（点击移除）",
+              S.addedKeywords(controller.settingsController.shieldList.length),
               style: Get.textTheme.titleSmall,
             ),
           ),

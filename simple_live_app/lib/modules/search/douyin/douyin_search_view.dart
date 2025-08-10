@@ -5,6 +5,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 import 'package:get/get.dart';
 import 'package:simple_live_app/app/app_style.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:simple_live_app/modules/search/douyin/douyin_search_controller.dart';
 import 'package:simple_live_app/routes/app_navigation.dart';
 import 'package:simple_live_app/widgets/keep_alive_wrapper.dart';
@@ -34,14 +35,14 @@ class DouyinSearchView extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      "暂不支持抖音搜索，请打开浏览器搜索，然后复制直播间链接进行解析",
+                    Text(
+                      S.douyinSearchNotSupported,
                       textAlign: TextAlign.center,
                     ),
                     TextButton.icon(
                       onPressed: controller.openBrowser,
                       icon: const Icon(Icons.open_in_browser),
-                      label: const Text("打开浏览器"),
+                      label: Text(S.openBrowser),
                     ),
                   ],
                 ),

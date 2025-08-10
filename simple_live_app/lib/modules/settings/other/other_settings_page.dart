@@ -11,6 +11,7 @@ import 'package:simple_live_app/widgets/settings/settings_card.dart';
 import 'package:simple_live_app/widgets/settings/settings_menu.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class OtherSettingsPage extends GetView<OtherSettingsController> {
   const OtherSettingsPage({super.key});
@@ -19,7 +20,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("其他设置"),
+        title: Text(S.otherSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -32,21 +33,21 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                   Expanded(
                     child: TextButton.icon(
                       onPressed: controller.exportConfig,
-                      label: const Text("导出配置"),
+                      label: Text(S.exportConfig),
                       icon: const Icon(Remix.export_line),
                     ),
                   ),
                   Expanded(
                     child: TextButton.icon(
                       onPressed: controller.importConfig,
-                      label: const Text("导入配置"),
+                      label: Text(S.importConfig),
                       icon: const Icon(Remix.import_line),
                     ),
                   ),
                   Expanded(
                     child: TextButton.icon(
                       onPressed: controller.resetDefaultConfig,
-                      label: const Text("重置配置"),
+                      label: Text(S.resetConfig),
                       icon: const Icon(Remix.restart_line),
                     ),
                   ),
@@ -57,7 +58,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "播放器高级设置",
+              S.playerAdvancedSettings,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -65,7 +66,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
             padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
             child: Text.rich(
               TextSpan(
-                text: "请勿随意修改以下设置，除非你知道自己在做什么。\n在修改以下设置前，你应该先查阅",
+                text: S.playerSettingsWarning,
                 children: [
                   WidgetSpan(
                     child: GestureDetector(
@@ -73,8 +74,8 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                         launchUrlString(
                             "https://mpv.io/manual/stable/#video-output-drivers");
                       },
-                      child: const Text(
-                        "MPV的文档",
+                      child: Text(
+                        S.mpvDocumentation,
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 12,
@@ -95,7 +96,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                   () => SettingsSwitch(
                     value:
                         AppSettingsController.instance.customPlayerOutput.value,
-                    title: "自定义输出驱动与硬件加速",
+                    title: S.customOutputDriver,
                     onChanged: (e) {
                       AppSettingsController.instance.setCustomPlayerOutput(e);
                     },
@@ -104,7 +105,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsMenu(
-                    title: "视频输出驱动(--vo)",
+                    title: S.videoOutputDriver,
                     value:
                         AppSettingsController.instance.videoOutputDriver.value,
                     valueMap: controller.videoOutputDrivers,
@@ -116,7 +117,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsMenu(
-                    title: "音频输出驱动(--ao)",
+                    title: S.audioOutputDriver,
                     value:
                         AppSettingsController.instance.audioOutputDriver.value,
                     valueMap: controller.audioOutputDrivers,
@@ -128,7 +129,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                 AppStyle.divider,
                 Obx(
                   () => SettingsMenu(
-                    title: "硬件解码器(--hwdec)",
+                    title: S.hardwareDecoder,
                     value: AppSettingsController
                         .instance.videoHardwareDecoder.value,
                     valueMap: controller.hardwareDecoder,
@@ -143,7 +144,7 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "日志记录",
+              S.logging,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -153,8 +154,8 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
                 Obx(
                   () => SettingsSwitch(
                     value: AppSettingsController.instance.logEnable.value,
-                    title: "开启日志记录",
-                    subtitle: "开启后将记录调试日志，可以将日志文件提供给开发者用于排查问题",
+                    title: S.enableLogging,
+                    subtitle: S.loggingSubtitle,
                     onChanged: controller.setLogEnable,
                   ),
                 ),
@@ -165,14 +166,14 @@ class OtherSettingsPage extends GetView<OtherSettingsController> {
             contentPadding: AppStyle.edgeInsetsL12,
             visualDensity: VisualDensity.compact,
             title: Text(
-              "日志列表",
+              S.logList,
               style: Get.textTheme.titleSmall,
             ),
             trailing: TextButton.icon(
               onPressed: () {
                 controller.cleanLog();
               },
-              label: const Text("清空日志"),
+              label: Text(S.clearLogs),
               icon: const Icon(Icons.clear_all),
             ),
           ),

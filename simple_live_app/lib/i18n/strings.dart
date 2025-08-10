@@ -54,6 +54,7 @@ class S {
   
   // Additional live room properties
   static String get bubbleStyle => 'bubble_style'.tr;
+
   static String get moreSettings => 'more_settings'.tr;
   static String get keywordBlocking => 'keyword_blocking'.tr;
   static String get danmakuSettings => 'danmaku_settings'.tr;
@@ -61,19 +62,62 @@ class S {
   static String get screenSize => 'screen_size'.tr;
   static String get line => 'line'.tr;
   static String get unfollow => 'unfollow'.tr;
+  static String get searchHint => 'searchHint'.tr;
+  static String get room => 'room'.tr;
+  static String get streamer => 'streamer'.tr;
+  static String get danmuShield => 'danmu_shield'.tr;
+  static String get enterKeywordOrRegex => 'enterKeywordOrRegex'.tr;
+  static String get regexHint => 'regexHint'.tr;
+  static String addedKeywords(int count) => 'added_keywords'.trParams({'count': count.toString()});
+  static String get watchHistory => 'watchHistory'.tr;
+  static String get confirmDeleteRecord => 'confirmDeleteRecord'.tr;
+  static String get deleteRecord => 'deleteRecord'.tr;
+  static String get otherSettings => 'otherSettings'.tr;
+  static String get exportConfig => 'exportConfig'.tr;
+  static String get importConfig => 'importConfig'.tr;
+  static String get resetConfig => 'resetConfig'.tr;
+  static String get playerAdvancedSettings => 'playerAdvancedSettings'.tr;
+  static String get playerSettingsWarning => 'playerSettingsWarning'.tr;
+  static String get mpvDocumentation => 'mpvDocumentation'.tr;
+  static String get customOutputDriver => 'customOutputDriver'.tr;
+  static String get videoOutputDriver => 'videoOutputDriver'.tr;
+  static String get audioOutputDriver => 'audioOutputDriver'.tr;
+  static String get hardwareDecoder => 'hardwareDecoder'.tr;
+  static String get logging => 'logging'.tr;
+  static String get enableLogging => 'enableLogging'.tr;
+  static String get loggingSubtitle => 'loggingSubtitle'.tr;
+  static String get logList => 'logList'.tr;
+  static String get clearLogs => 'clearLogs'.tr;
+  static String get autoExitSettings => 'autoExitSettings'.tr;
+  static String get enableAutoExit => 'enableAutoExit'.tr;
+  static String get autoExitTime => 'autoExitTime'.tr;
+  static String timeFormat(int hours, int minutes) => 'timeFormat'.trParams({'hours': hours.toString(), 'minutes': minutes.toString()});
+  static String get autoExitSubtitle => 'autoExitSubtitle'.tr;
+
+  // Play Settings Page
+  static String get hardwareDecodeSubtitle => 'hardware_decode_subtitle'.tr;
+  static String get compatibilityModeSubtitle => 'compatibility_mode_subtitle'.tr;
+  static String get autoPauseInBackground => 'auto_pause_in_background'.tr;
+  static String get useHttpsLinksSubtitle => 'use_https_links_subtitle'.tr;
+  static String get autoFullScreenOnEnter => 'auto_full_screen_on_enter'.tr;
+  static String get hideDanmuInPip => 'hide_danmu_in_pip'.tr;
+  static String get defaultQuality => 'default_quality'.tr;
+  static String get lowest => 'lowest'.tr;
+  static String get medium => 'medium'.tr;
+  static String get highest => 'highest'.tr;
+  static String get cellularQuality => 'cellular_quality'.tr;
+  static String get textSize => 'text_size'.tr;
+  static String get verticalSpacing => 'vertical_spacing'.tr;
   static String get copyLink => 'copy_link'.tr;
   static String get copyPlayUrl => 'copy_play_url'.tr;
   static String get chat => 'chat'.tr;
   static String get latest => 'latest'.tr;
-  static String get chatArea => 'chat_area'.tr;
   static String get fontSize => 'font_size'.tr;
   static String get lineSpacing => 'line_spacing'.tr;
   static String get liveRoomLoadFailed => 'live_room_loading_failed'.tr;
   static String get unknownError => 'unknown_error'.tr;
-  static String get room => 'room'.tr;
   
   // Danmaku settings
-  static String get danmuShield => 'danmu_shield'.tr;
   static String get defaultSwitch => 'default_switch'.tr;
   static String get displayArea => 'display_area'.tr;
   static String get opacity => 'opacity'.tr;
@@ -188,4 +232,197 @@ class S {
   static String get sentBilibiliAccount => 'sent_bilibili_account'.tr;
   static String get notLoggedInBilibili => 'not_logged_in_bilibili'.tr;
   static String get syncedFollowAndTags => 'synced_follow_and_tags'.tr;
+  
+  // Live room related
+  static String get danmakuServerConnected => 'danmaku_server_connected'.tr;
+  static String get readingRoomInfo => 'reading_room_info'.tr;
+  static String get streamerNotLive => 'streamer_not_live'.tr;
+  static String get connectingDanmaku => 'connecting_danmaku'.tr;
+  static String get playFailed => 'play_failed'.tr;
+  static String get cannotReadPlayUrl => 'cannot_read_play_url'.tr;
+  static String get cannotReadQuality => 'cannot_read_quality'.tr;
+  static String get copiedRoomLink => 'copied_room_link'.tr;
+  static String get copiedPlayUrl => 'copied_play_url'.tr;
+  static String get switchQuality => 'switch_quality'.tr;
+  static String get switchLine => 'switch_line'.tr;
+  static String get keywordBlock => 'keyword_block'.tr;
+  static String get inputKeyword => 'input_keyword'.tr;
+  static String get enableTimerClose => 'enable_timer_close'.tr;
+  static String get autoCloseTime => 'auto_close_time'.tr;
+  static String get globalTimerSet => 'global_timer_set'.tr;
+  static String get cannotOpenApp => 'cannot_open_app'.tr;
+  static String get copiedErrorInfo => 'copied_error_info'.tr;
+  static String get enterBackground => 'enter_background'.tr;
+  static String get returnForeground => 'return_foreground'.tr;
+  static String get autoCloseAfter => 'auto_close_after'.tr;
+  static String get delayClose => 'delay_close'.tr;
+  static String get delayCloseTitle => 'delay_close_title'.tr;
+  static String get delay => 'delay'.tr;
+  
+  // Follow user related
+  static String get followUsers => 'follow_users'.tr;
+  static String get all => 'all'.tr;
+  static String get living => 'living'.tr;
+  static String get notLiving => 'not_living'.tr;
+  static String get exportFile => 'export_file'.tr;
+  static String get importFile => 'import_file'.tr;
+  static String get exportText => 'export_text'.tr;
+  static String get importText => 'import_text'.tr;
+  static String get tagManagement => 'tag_management'.tr;
+  static String get setTag => 'set_tag'.tr;
+  static String get addTag => 'add_tag'.tr;
+  static String get editTag => 'edit_tag'.tr;
+  static String get tagNameDuplicate => 'tag_name_duplicate'.tr;
+  static String get modifySuccess => 'modify_success'.tr;
+  static String get confirmUnfollowUser => 'confirm_unfollow_user'.tr;
+  
+  // Search related
+  static String get searchPlaceholder => 'search_placeholder'.tr;
+  
+  // History related
+  static String get clearHistory => 'clear_history'.tr;
+  static String get confirmClearHistory => 'confirm_clear_history'.tr;
+  
+  // Settings related
+  static String get advancedSettingsWarning => 'advanced_settings_warning'.tr;
+  static String get logRecording => 'log_recording'.tr;
+  static String get enableLogRecording => 'enable_log_recording'.tr;
+  static String get logRecordingDesc => 'log_recording_desc'.tr;
+  
+  // Sync device related
+  static String get syncFollowListAction => 'sync_follow_list_action'.tr;
+  static String get syncWatchHistory => 'sync_watch_history'.tr;
+  static String get syncDanmakuBlock => 'sync_danmaku_block'.tr;
+  static String get syncBilibiliAccountAction => 'sync_bilibili_account_action'.tr;
+  
+  // Local sync related
+  static String get lanDataSync => 'lan_data_sync'.tr;
+  static String get clientAddress => 'client_address'.tr;
+  static String get inputAddressHint => 'input_address_hint'.tr;
+  static String get scanQRCode => 'scan_qr_code'.tr;
+  static String get devicesFound => 'devices_found'.tr;
+  static String get manualInputTip => 'manual_input_tip'.tr;
+  
+  // Remote sync room related
+  static String get dataSync => 'data_sync'.tr;
+  static String get connected => 'connected'.tr;
+  static String get connecting => 'connecting'.tr;
+  static String get roomAutoClose => 'room_auto_close'.tr;
+  static String get roomNumber => 'room_number'.tr;
+  static String get syncDataToDevices => 'sync_data_to_devices'.tr;
+  static String get sendFollowList => 'send_follow_list'.tr;
+  static String get sendWatchHistory => 'send_watch_history'.tr;
+  static String get sendBlockWords => 'send_block_words'.tr;
+  static String get sendBilibiliAccount => 'send_bilibili_account'.tr;
+  static String get connectedDevices => 'connected_devices'.tr;
+  static String get creator => 'creator'.tr;
+  static String get localDevice => 'local_device'.tr;
+  
+  // Common messages
+  static String get pleaseInputKeyword => 'please_input_keyword'.tr;
+  static String get connectionFailed => 'connection_failed'.tr;
+  static String get multipleAddressesFound => 'multiple_addresses_found'.tr;
+  static String get pleaseSelectAddress => 'please_select_address'.tr;
+  static String get serviceStarted => 'service_started'.tr;
+  static String get httpServiceNotStarted => 'http_service_not_started'.tr;
+  static String get pleaseRestartApp => 'please_restart_app'.tr;
+  static String get scanQRToConnect => 'scan_qr_to_connect'.tr;
+  static String get dataOverwrite => 'data_overwrite'.tr;
+  static String get dataOverwriteQuestion => 'data_overwrite_question'.tr;
+  static String get overwrite => 'overwrite'.tr;
+  static String get notOverwrite => 'not_overwrite'.tr;
+  static String get syncing => 'syncing'.tr;
+  static String get syncedHistory => 'synced_history'.tr;
+  static String get syncedShieldWords => 'synced_shield_words'.tr;
+  static String get noDeviceConnected => 'no_device_connected'.tr;
+  static String get sending => 'sending'.tr;
+  static String get sentHistory => 'sent_history'.tr;
+  static String get sentShieldWords => 'sent_shield_words'.tr;
+  static String get sendFailed => 'send_failed'.tr;
+  static String get roomInfo => 'room_info'.tr;
+  static String get roomDestroyed => 'room_destroyed'.tr;
+  
+  // Account related
+  static String get noLoginRequired => 'no_login_required'.tr;
+  
+  // Player related
+  static String get volume => 'volume'.tr;
+  static String get brightness => 'brightness'.tr;
+  static String get playerError => 'player_error'.tr;
+  static String get playerLog => 'player_log'.tr;
+  static String get playerClosed => 'player_closed'.tr;
+  
+  // Other common strings
+  static String get hours => 'hours'.tr;
+  static String get minutes => 'minutes'.tr;
+  static String get seconds => 'seconds'.tr;
+  static String get saveSuccess => 'save_success'.tr;
+  static String get exportFailed => 'export_failed'.tr;
+  static String get importSuccess => 'import_success'.tr;
+  static String get importFailed => 'import_failed'.tr;
+  static String get unsupportedConfigFile => 'unsupported_config_file'.tr;
+  static String get platformMismatch => 'platform_mismatch'.tr;
+  static String get importSuccessRestart => 'import_success_restart'.tr;
+  static String get resetAllConfig => 'reset_all_config'.tr;
+  static String get resetSuccessRestart => 'reset_success_restart'.tr;
+  static String get pleaseCloseLogFirst => 'please_close_log_first'.tr;
+  static String get hardwareDecodeDesc => 'hardware_decode_desc'.tr;
+  static String get compatibilityModeDesc => 'compatibility_mode_desc'.tr;
+  static String get pauseInBackground => 'pause_in_background'.tr;
+  static String get useHttpsLinksDesc => 'use_https_links_desc'.tr;
+  static String get autoFullscreen => 'auto_fullscreen'.tr;
+  static String get mobileQuality => 'mobile_quality'.tr;
+  static String get timerCloseSettings => 'timer_close_settings'.tr;
+  static String get enableTimerCloseDesc => 'enable_timer_close_desc'.tr;
+  static String get autoCloseTimeDesc => 'auto_close_time_desc'.tr;
+  static String get danmakuShield => 'danmaku_shield'.tr;
+  static String get inputKeywordHint => 'input_keyword_hint'.tr;
+  static String get regexTip => 'regex_tip'.tr;
+  
+  
+  // Mine page specific strings
+  static String get appSubtitle => 'app_subtitle'.tr;
+  static String get linkAnalysis => 'link_analysis'.tr;
+  static String get liveStreamSettings => 'live_stream_settings'.tr;
+  static String get autoExit => 'auto_exit'.tr;
+  static String get test => 'test'.tr;
+  static String get openSourceHomepage => 'open_source_homepage'.tr;
+  
+  // Live status
+  static String get streaming => 'streaming'.tr;
+  
+  // Category
+  static String get showAll => 'show_all'.tr;
+  
+  // Douyin search
+  static String get douyinSearchNotSupported => 'douyin_search_not_supported'.tr;
+  static String get openBrowser => 'open_browser'.tr;
+  
+  // Local sync
+  static String get pleaseInputAddress => 'please_input_address'.tr;
+  static String get manualInput => 'manual_input'.tr;
+  static String get deviceInfo => 'device_info'.tr;
+  
+  // History
+  static String get confirmClearWatchHistory => 'confirm_clear_watch_history'.tr;
+  static String get clearWatchHistory => 'clear_watch_history'.tr;
+  
+  // Additional missing sync keys
+  static String get syncHistory => 'sync_history'.tr;
+  static String get syncBlockedWords => 'sync_blocked_words'.tr;
+  static String get enterAddressOrScan => 'enter_address_or_scan'.tr;
+  static String get scan => 'scan'.tr;
+  static String get discoveredDevices => 'discovered_devices'.tr;
+  static String get manualAddressHint => 'manual_address_hint'.tr;
+  
+  // Missing strings referenced in error messages
+  static String get chatArea => 'chat_area'.tr;
+  static String get accountManagement => 'account_management'.tr;
+  static String get bilibiliAccountInfo => 'bilibili_account_info'.tr;
+  static String get liveRoomSettings => 'live_room_settings'.tr;
+  static String get player => 'player'.tr;
+  static String get hardwareDecode => 'hardware_decode'.tr;
+  static String get compatibilityMode => 'compatibility_mode'.tr;
+  static String get useHttpsLinks => 'use_https_links'.tr;
+  static String get danmuSettings => 'danmu_settings'.tr;
 }
