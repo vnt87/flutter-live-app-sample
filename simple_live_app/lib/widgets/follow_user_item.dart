@@ -161,8 +161,8 @@ class FollowUserItem extends StatelessWidget {
       int hours = durationInSeconds ~/ 3600;
       int minutes = (durationInSeconds % 3600) ~/ 60;
 
-      String hourText = hours > 0 ? '${hours} giờ' : '';
-      String minuteText = minutes > 0 ? '${minutes} phút' : '';
+      String hourText = hours > 0 ? '$hours giờ' : '';
+      String minuteText = minutes > 0 ? '$minutes phút' : '';
 
       if (hours == 0 && minutes == 0) {
         return "Dưới 1 phút";

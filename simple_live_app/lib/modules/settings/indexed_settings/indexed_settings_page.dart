@@ -5,6 +5,7 @@ import 'package:simple_live_app/app/constant.dart';
 import 'package:simple_live_app/app/sites.dart';
 import 'package:simple_live_app/modules/settings/indexed_settings/indexed_settings_controller.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class IndexedSettingsPage extends GetView<IndexedSettingsController> {
   const IndexedSettingsPage({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class IndexedSettingsPage extends GetView<IndexedSettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("主页设置"),
+        title: Text(S.homepageSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -21,7 +22,7 @@ class IndexedSettingsPage extends GetView<IndexedSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
             child: Text(
-              "主页排序 (长按拖动排序，重启后生效)",
+              S.homepageSort,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -49,7 +50,7 @@ class IndexedSettingsPage extends GetView<IndexedSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "平台排序 (长按拖动排序，重启后生效)",
+              S.platformSort,
               style: Get.textTheme.titleSmall,
             ),
           ),

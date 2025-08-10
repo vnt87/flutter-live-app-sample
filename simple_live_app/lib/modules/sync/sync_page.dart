@@ -6,6 +6,7 @@ import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/utils.dart';
 import 'package:simple_live_app/routes/route_path.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class SyncPage extends StatelessWidget {
   const SyncPage({super.key});
@@ -14,7 +15,7 @@ class SyncPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Đồng bộ dữ liệu"),
+        title: Text(S.syncData),
         actions: [
           Visibility(
             visible: GetPlatform.isAndroid || GetPlatform.isIOS,
@@ -31,7 +32,7 @@ class SyncPage extends StatelessWidget {
                 }
               },
               icon: const Icon(Remix.qr_scan_line),
-              label: const Text("扫一扫"),
+              label: Text(S.scanQR),
             ),
           ),
         ],
@@ -42,7 +43,7 @@ class SyncPage extends StatelessWidget {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
             child: Text(
-              "远程同步",
+              S.remoteSync,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -50,9 +51,9 @@ class SyncPage extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: const Text("创建房间"),
+                  title: Text(S.createRoom),
                   leading: const Icon(Remix.home_wifi_line),
-                  subtitle: const Text("其他设备可以通过房间号加入"),
+                  subtitle: Text(S.createRoomSubtitle),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Get.toNamed(RoutePath.kRemoteSyncRoom);
@@ -60,22 +61,22 @@ class SyncPage extends StatelessWidget {
                 ),
                 AppStyle.divider,
                 ListTile(
-                  title: const Text("加入房间"),
+                  title: Text(S.joinRoom),
                   leading: const Icon(Remix.add_circle_line),
-                  subtitle: const Text("加入其他设备创建的房间"),
+                  subtitle: Text(S.joinRoomSubtitle),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () async {
                     var input = await Utils.showEditTextDialog(
                       "",
-                      title: "加入房间",
-                      hintText: "请输入房间号,不区分大小写",
+                      title: S.joinRoom,
+                      hintText: S.enterRoomCode,
                       validate: (text) {
                         if (text.isEmpty) {
-                          SmartDialog.showToast("房间号不能为空");
+                          SmartDialog.showToast(S.roomCodeEmpty);
                           return false;
                         }
                         if (text.length != 5) {
-                          SmartDialog.showToast("请输入5位房间号");
+                          SmartDialog.showToast(S.roomCodeLength);
                           return false;
                         }
                         return true;
@@ -91,7 +92,7 @@ class SyncPage extends StatelessWidget {
                 ListTile(
                   title: const Text("WebDAV"),
                   leading: const Icon(Icons.cloud_upload_outlined),
-                  subtitle: const Text("Đồng bộ dữ liệu qua WebDAV"),
+                  subtitle: Text(S.webdavSync),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Get.toNamed(RoutePath.kRemoteSyncWebDav);
@@ -103,7 +104,7 @@ class SyncPage extends StatelessWidget {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
             child: Text(
-              "局域网同步",
+              S.localSync,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -111,8 +112,8 @@ class SyncPage extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: const Text("局域网同步"),
-                  subtitle: const Text("在局域网内同步数据"),
+                  title: Text(S.localSync),
+                  subtitle: Text(S.localSyncSubtitle),
                   leading: const Icon(Remix.device_line),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {

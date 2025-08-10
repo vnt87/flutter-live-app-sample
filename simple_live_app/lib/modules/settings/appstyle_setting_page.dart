@@ -4,6 +4,7 @@ import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/controller/app_settings_controller.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class AppstyleSettingPage extends GetView<AppSettingsController> {
   const AppstyleSettingPage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("外观设置"),
+        title: Text(S.appearanceSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -20,7 +21,7 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
             child: Text(
-              "显示主题",
+              S.displayTheme,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -30,8 +31,8 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   RadioListTile<int>(
-                    title: const Text(
-                      "跟随系统",
+                    title: Text(
+                      S.followSystem,
                     ),
                     visualDensity: VisualDensity.compact,
                     value: 0,
@@ -42,8 +43,8 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
                     },
                   ),
                   RadioListTile<int>(
-                    title: const Text(
-                      "浅色模式",
+                    title: Text(
+                      S.lightMode,
                     ),
                     visualDensity: VisualDensity.compact,
                     value: 1,
@@ -54,8 +55,8 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
                     },
                   ),
                   RadioListTile<int>(
-                    title: const Text(
-                      "深色模式",
+                    title: Text(
+                      S.darkMode,
                     ),
                     visualDensity: VisualDensity.compact,
                     value: 2,
@@ -73,7 +74,7 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
           Padding(
             padding: AppStyle.edgeInsetsA12,
             child: Text(
-              "主题颜色",
+              S.themeColor,
               style: Get.textTheme.titleSmall,
             ),
           ),
@@ -84,7 +85,7 @@ class AppstyleSettingPage extends GetView<AppSettingsController> {
                 children: [
                   SettingsSwitch(
                     value: controller.isDynamic.value,
-                    title: "动态取色",
+                    title: S.dynamicColor,
                     onChanged: (e) {
                       controller.setIsDynamic(e);
                       Get.forceAppUpdate();

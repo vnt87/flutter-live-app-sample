@@ -10,7 +10,7 @@ class LocalizationDemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Localization Demo'),
+        title: const Text('Localization Demo'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,7 +31,7 @@ class LocalizationDemoPage extends StatelessWidget {
                   cancel: S.cancel,
                 );
               },
-              child: Text('Show Confirmation Dialog'),
+              child: const Text('Show Confirmation Dialog'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
@@ -42,7 +42,7 @@ class LocalizationDemoPage extends StatelessWidget {
                   confirm: S.confirm,
                 );
               },
-              child: Text('Show Message Dialog'),
+              child: const Text('Show Message Dialog'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
@@ -55,18 +55,18 @@ class LocalizationDemoPage extends StatelessWidget {
                   cancel: S.cancel,
                 );
               },
-              child: Text('Show Edit Text Dialog'),
+              child: const Text('Show Edit Text Dialog'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Utils.showInformationHelpDialog(
                   content: [
-                    Text('Đây là nội dung trợ giúp được bản địa hóa.'),
+                    const Text('Đây là nội dung trợ giúp được bản địa hóa.'),
                     const SizedBox(height: 10),
-                    Text('Tất cả các nút và tiêu đề đều sử dụng bản địa hóa tiếng Việt.'),
+                    const Text('Tất cả các nút và tiêu đề đều sử dụng bản địa hóa tiếng Việt.'),
                     const SizedBox(height: 10),
-                    Text('Điều này giúp người dùng Việt Nam dễ dàng sử dụng ứng dụng hơn.'),
+                    const Text('Điều này giúp người dùng Việt Nam dễ dàng sử dụng ứng dụng hơn.'),
                   ],
                   title: Text(S.help),
                   actions: [
@@ -77,7 +77,7 @@ class LocalizationDemoPage extends StatelessWidget {
                   ],
                 );
               },
-              child: Text('Show Help Dialog'),
+              child: const Text('Show Help Dialog'),
             ),
             const SizedBox(height: 20),
             Text(
@@ -89,21 +89,21 @@ class LocalizationDemoPage extends StatelessWidget {
               spacing: 8,
               runSpacing: 8,
               children: [
-                Chip(label: Text('${S.confirm}')),
-                Chip(label: Text('${S.cancel}')),
-                Chip(label: Text('${S.save}')),
-                Chip(label: Text('${S.delete}')),
-                Chip(label: Text('${S.edit}')),
-                Chip(label: Text('${S.add}')),
-                Chip(label: Text('${S.refresh}')),
-                Chip(label: Text('${S.settings}')),
-                Chip(label: Text('${S.help}')),
-                Chip(label: Text('${S.info}')),
-                Chip(label: Text('${S.success}')),
-                Chip(label: Text('${S.failed}')),
-                Chip(label: Text('${S.copy}')),
-                Chip(label: Text('${S.share}')),
-                Chip(label: Text('${S.search}')),
+                Chip(label: Text(S.confirm)),
+                Chip(label: Text(S.cancel)),
+                Chip(label: Text(S.save)),
+                Chip(label: Text(S.delete)),
+                Chip(label: Text(S.edit)),
+                Chip(label: Text(S.add)),
+                Chip(label: Text(S.refresh)),
+                Chip(label: Text(S.settings)),
+                Chip(label: Text(S.help)),
+                Chip(label: Text(S.info)),
+                Chip(label: Text(S.success)),
+                Chip(label: Text(S.failed)),
+                Chip(label: Text(S.copy)),
+                Chip(label: Text(S.share)),
+                Chip(label: Text(S.search)),
               ],
             ),
           ],

@@ -6,6 +6,7 @@ import 'package:simple_live_app/app/utils.dart';
 import 'package:simple_live_app/modules/sync/remote_sync/webdav/remote_sync_webdav_controller.dart';
 import 'package:simple_live_app/routes/route_path.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
   const RemoteSyncWebDAVPage({super.key});
@@ -14,7 +15,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Đồng bộ WebDAV"),
+        title: Text(S.webdavSync),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -25,9 +26,9 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
                 children: controller.notLogin.value
                     ? [
                         ListTile(
-                          title: const Text("Nhấp để đăng nhập"),
+                          title: Text(S.clickToLogin),
                           leading: const Icon(Icons.login),
-                          subtitle: const Text("Sau khi đăng nhập có thể đồng bộ tất cả dữ liệu của bạn"),
+                          subtitle: Text(S.loginToSyncData),
                           trailing: const Icon(Icons.chevron_right),
                           onTap: () {
                             Get.toNamed(RoutePath.kRemoteSyncWebDavConfig);
@@ -36,7 +37,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
                       ]
                     : [
                         ListTile(
-                          title: const Text("Đã đăng nhập"),
+                          title: Text(S.loggedIn),
                           leading: const Icon(Icons.cloud_circle_outlined),
                           subtitle: Text(controller.user.value),
                           trailing: const Icon(Icons.logout),
@@ -46,8 +47,8 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
                         ),
                         AppStyle.divider,
                         ListTile(
-                          title: const Text("Tải lên đám mây"),
-                          subtitle: Text("Lần tải lên cuối: ${controller.lastUploadTime}"),
+                          title: Text(S.uploadToCloud),
+                          subtitle: Text("${S.lastUpload}: ${controller.lastUploadTime}"),
                           leading: const Icon(Icons.cloud_upload_outlined),
                           trailing: const Icon(Icons.chevron_right),
                           onTap: () {
@@ -56,8 +57,8 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
                         ),
                         AppStyle.divider,
                         ListTile(
-                          title: const Text("Khôi phục về máy"),
-                          subtitle: Text("Lần khôi phục cuối: ${controller.lastRecoverTime}"),
+                          title: Text(S.restoreToDevice),
+                          subtitle: Text("${S.lastRestore}: ${controller.lastRecoverTime}"),
                           leading: const Icon(Icons.cloud_download_outlined),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -85,7 +86,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
 
   void showSetting() {
     Utils.showBottomSheet(
-      title: 'Tùy chọn đồng bộ',
+      title: S.syncOptions,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -94,7 +95,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
           Obx(
             () => CheckboxListTile(
               secondary: const Icon(Remix.heart_line),
-              title: const Text("Đồng bộ danh sách theo dõi"),
+              title: Text(S.syncFollowList),
               value: controller.isSyncFollows.value,
               controlAffinity: ListTileControlAffinity.trailing,
               onChanged: (value) => controller.changeIsSyncFollows(),
@@ -104,7 +105,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
           Obx(
             () => CheckboxListTile(
               secondary: const Icon(Icons.history),
-              title: const Text("Đồng bộ lịch sử phát"),
+              title: Text(S.syncPlayHistory),
               value: controller.isSyncHistories.value,
               controlAffinity: ListTileControlAffinity.trailing,
               onChanged: (value) => controller.changeIsSyncHistories(),
@@ -114,7 +115,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
           Obx(
             () => CheckboxListTile(
               secondary: const Icon(Remix.shield_keyhole_line),
-              title: const Text("Đồng bộ từ chặn"),
+              title: Text(S.syncBlockWords),
               value: controller.isSyncBlockWord.value,
               controlAffinity: ListTileControlAffinity.trailing,
               onChanged: (value) => controller.changeIsSyncBlockWord(),
@@ -124,7 +125,7 @@ class RemoteSyncWebDAVPage extends GetView<RemoteSyncWebDAVController> {
           Obx(
             () => CheckboxListTile(
               secondary: const Icon(Remix.account_circle_line),
-              title: const Text("Đồng bộ tài khoản Bilibili"),
+              title: Text(S.syncBilibiliAccount),
               value: controller.isSyncBilibiliAccount.value,
               controlAffinity: ListTileControlAffinity.trailing,
               onChanged: (value) => controller.changeIsSyncBilibiliAccount(),

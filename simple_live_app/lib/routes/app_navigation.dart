@@ -11,6 +11,7 @@ import 'package:simple_live_app/models/sync_client_info_model.dart';
 import 'package:simple_live_app/routes/route_path.dart';
 import 'package:simple_live_app/services/bilibili_account_service.dart';
 import 'package:simple_live_app/services/sync_service.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:simple_live_core/simple_live_core.dart';
 
 /// APP页面跳转封装
@@ -30,22 +31,22 @@ class AppNavigator {
         !BiliBiliAccountService.instance.logined.value &&
         AppSettingsController.instance.bilibiliLoginTip.value) {
       var result = await Utils.showAlertDialog(
-        "哔哩哔哩需要登录才能观看高清直播，是否前往登录？",
-        title: "登录哔哩哔哩",
+        S.bilibiliLoginRequired,
+        title: S.loginBilibili,
         actions: [
           TextButton(
             onPressed: () {
               AppSettingsController.instance.setBiliBiliLoginTip(false);
               Get.back(result: false);
             },
-            child: const Text("不再提示"),
+            child: Text(S.noMorePrompt),
           ),
         ],
       );
       if (result == true) {
         await toBiliBiliLogin();
         if (!BiliBiliAccountService.instance.logined.value) {
-          SmartDialog.showToast("未完成登录");
+          SmartDialog.showToast(S.loginIncomplete);
         }
       }
     }

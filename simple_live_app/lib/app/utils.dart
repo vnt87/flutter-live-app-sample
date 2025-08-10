@@ -11,7 +11,6 @@ import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/log.dart';
-import 'package:simple_live_app/app/sites.dart';
 import 'package:simple_live_app/i18n/strings.dart';
 
 typedef TextValidate = bool Function(String text);

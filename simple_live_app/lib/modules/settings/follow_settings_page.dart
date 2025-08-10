@@ -7,6 +7,7 @@ import 'package:simple_live_app/widgets/settings/settings_action.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
 import 'package:simple_live_app/widgets/settings/settings_number.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class FollowSettingsPage extends GetView<AppSettingsController> {
   const FollowSettingsPage({super.key});
@@ -15,7 +16,7 @@ class FollowSettingsPage extends GetView<AppSettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("关注设置"),
+        title: Text(S.followSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -26,7 +27,7 @@ class FollowSettingsPage extends GetView<AppSettingsController> {
                 Obx(
                   () => SettingsSwitch(
                     value: controller.autoUpdateFollowEnable.value,
-                    title: "自动更新关注直播状态",
+                    title: S.autoUpdateFollowStatus,
                     onChanged: (e) {
                       controller.setAutoUpdateFollowEnable(e);
                       FollowService.instance.initTimer();
@@ -43,7 +44,7 @@ class FollowSettingsPage extends GetView<AppSettingsController> {
                   () => Visibility(
                     visible: controller.autoUpdateFollowEnable.value,
                     child: SettingsAction(
-                      title: "自动更新间隔",
+                      title: S.autoUpdateInterval,
                       value:
                           "${controller.autoUpdateFollowDuration.value ~/ 60}小时${controller.autoUpdateFollowDuration.value % 60}分钟",
                       onTap: () {
@@ -56,8 +57,8 @@ class FollowSettingsPage extends GetView<AppSettingsController> {
                 Obx(
                   () => SettingsNumber(
                     value: controller.updateFollowThreadCount.value,
-                    title: "更新线程数",
-                    subtitle: "多线程可以能更快的完成加载，但可能会因为请求太频繁导致读取状态失败",
+                    title: S.updateThreads,
+                    subtitle: S.multithreadWarning,
                     min: 1,
                     max: 12,
                     onChanged: (e) {

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppLocalizations extends Translations {
@@ -916,6 +915,26 @@ class AppLocalizations extends Translations {
       'keyword_blocking': 'Chặn từ khóa',
       'timer_close': 'Đóng theo thời gian',
       'screen_size': 'Kích thước màn hình',
+      'danmu_shield': 'Chặn danmaku',
+      'default_switch': 'Công tắc mặc định',
+      'display_area': 'Vùng hiển thị',
+      'opacity': 'Độ mờ',
+      'font_weight': 'Độ đậm chữ',
+      'scroll_speed': 'Tốc độ cuộn',
+      'danmu_duration_subtitle': 'Thời gian tồn tại danmaku (giây), càng nhỏ tốc độ càng nhanh',
+      'font_stroke': 'Viền chữ',
+      'top_margin': 'Lề trên',
+      'bottom_margin': 'Lề dưới',
+      'curved_screen_subtitle': 'Màn hình cong hiển thị không đầy đủ có thể thiết lập tùy chọn này',
+      'font_weight_thin': 'Rất mỏng',
+      'font_weight_extra_light': 'Cực mỏng',
+      'font_weight_light': 'Mỏng',
+      'font_weight_normal': 'Bình thường',
+      'font_weight_medium': 'Hơi đậm',
+      'font_weight_semi_bold': 'Khá đậm',
+      'font_weight_bold': 'Đậm',
+      'font_weight_extra_bold': 'Rất đậm',
+      'font_weight_black': 'Cực đậm',
       'latest': 'Mới nhất',
       'chat': 'Trò chuyện',
       'follow': 'Theo dõi',

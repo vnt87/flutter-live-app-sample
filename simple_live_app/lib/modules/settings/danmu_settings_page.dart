@@ -8,6 +8,7 @@ import 'package:simple_live_app/widgets/settings/settings_action.dart';
 import 'package:simple_live_app/widgets/settings/settings_card.dart';
 import 'package:simple_live_app/widgets/settings/settings_number.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class DanmuSettingsPage extends StatelessWidget {
   const DanmuSettingsPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class DanmuSettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("弹幕设置"),
+        title: Text(S.danmakuSettings),
       ),
       body: ListView(
         padding: AppStyle.edgeInsetsA12,
@@ -46,7 +47,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
         Padding(
           padding: AppStyle.edgeInsetsA12.copyWith(top: 0),
           child: Text(
-            "弹幕屏蔽",
+            S.danmuShield,
             style: Get.textTheme.titleSmall,
           ),
         ),
@@ -55,7 +56,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SettingsAction(
-                title: "关键词屏蔽",
+                title: S.keywordBlocking,
                 onTap: onTapDanmuShield ??
                     () => Get.toNamed(RoutePath.kSettingsDanmuShield),
               ),
@@ -65,7 +66,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
         Padding(
           padding: AppStyle.edgeInsetsA12.copyWith(top: 24),
           child: Text(
-            "弹幕设置",
+            S.danmakuSettings,
             style: Get.textTheme.titleSmall,
           ),
         ),
@@ -75,7 +76,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
             children: [
               Obx(
                 () => SettingsSwitch(
-                  title: "默认开关",
+                  title: S.defaultSwitch,
                   value: controller.danmuEnable.value,
                   onChanged: (e) {
                     controller.setDanmuEnable(e);
@@ -85,7 +86,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "显示区域",
+                  title: S.displayArea,
                   value: (controller.danmuArea.value * 100).toInt(),
                   min: 10,
                   max: 100,
@@ -102,7 +103,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "不透明度",
+                  title: S.opacity,
                   value: (controller.danmuOpacity.value * 100).toInt(),
                   min: 10,
                   max: 100,
@@ -119,7 +120,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "字体大小",
+                  title: S.fontSize,
                   value: controller.danmuSize.toInt(),
                   min: 8,
                   max: 48,
@@ -135,21 +136,21 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "字体粗细",
+                  title: S.fontWeight,
                   value: controller.danmuFontWeight.value,
                   min: 0,
                   max: 8,
                   step: 1,
                   displayValue: [
-                    "极细",
-                    "很细",
-                    "细",
-                    "正常",
-                    "小粗",
-                    "偏粗",
-                    "粗",
-                    "很粗",
-                    "极粗"
+                    S.fontWeightThin,
+                    S.fontWeightExtraLight,
+                    S.fontWeightLight,
+                    S.fontWeightNormal,
+                    S.fontWeightMedium,
+                    S.fontWeightSemiBold,
+                    S.fontWeightBold,
+                    S.fontWeightExtraBold,
+                    S.fontWeightBlack
                   ][controller.danmuFontWeight.value]
                       .toString(),
                   onChanged: (e) {
@@ -165,8 +166,8 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "滚动速度",
-                  subtitle: "弹幕持续时间(秒)，越小速度越快",
+                  title: S.scrollSpeed,
+                  subtitle: S.danmuDurationSubtitle,
                   value: controller.danmuSpeed.toInt(),
                   min: 4,
                   max: 20,
@@ -182,7 +183,7 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "字体描边",
+                  title: S.fontStroke,
                   value: controller.danmuStrokeWidth.toInt(),
                   min: 0,
                   max: 10,
@@ -198,8 +199,8 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "顶部边距",
-                  subtitle: "曲面屏显示不全可设置此选项",
+                  title: S.topMargin,
+                  subtitle: S.curvedScreenSubtitle,
                   value: controller.danmuTopMargin.toInt(),
                   min: 0,
                   max: 48,
@@ -212,8 +213,8 @@ class DanmuSettingsView extends GetView<AppSettingsController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "底部边距",
-                  subtitle: "曲面屏显示不全可设置此选项",
+                  title: S.bottomMargin,
+                  subtitle: S.curvedScreenSubtitle,
                   value: controller.danmuBottomMargin.toInt(),
                   min: 0,
                   max: 48,
