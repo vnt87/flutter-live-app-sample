@@ -19,6 +19,7 @@ import 'package:simple_live_app/app/controller/base_controller.dart';
 import 'package:simple_live_app/app/custom_throttle.dart';
 import 'package:simple_live_app/app/log.dart';
 import 'package:simple_live_app/app/utils.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -376,14 +377,14 @@ mixin PlayerSystemMixin on PlayerMixin, PlayerStateMixin, PlayerDanmakuMixin {
       //检查相册权限,仅iOS需要
       var permission = await Utils.checkPhotoPermission();
       if (!permission) {
-        SmartDialog.showToast("没有相册权限");
+        SmartDialog.showToast(S.noAlbumPermission);
         SmartDialog.dismiss(status: SmartStatus.loading);
         return;
       }
 
       var imageData = await player.screenshot();
       if (imageData == null) {
-        SmartDialog.showToast("截图失败,数据为空");
+        SmartDialog.showToast(S.screenshotFailedEmpty);
         SmartDialog.dismiss(status: SmartStatus.loading);
         return;
       }
@@ -392,7 +393,7 @@ mixin PlayerSystemMixin on PlayerMixin, PlayerStateMixin, PlayerDanmakuMixin {
         await ImageGallerySaver.saveImage(
           imageData,
         );
-        SmartDialog.showToast("已保存截图至相册");
+        SmartDialog.showToast(S.screenshotSavedToAlbum);
       } else {
         //选择保存文件夹
         var path = await FilePicker.platform.saveFile(
@@ -401,17 +402,17 @@ mixin PlayerSystemMixin on PlayerMixin, PlayerStateMixin, PlayerDanmakuMixin {
           fileName: "${DateTime.now().millisecondsSinceEpoch}.jpg",
         );
         if (path == null) {
-          SmartDialog.showToast("取消保存");
+          SmartDialog.showToast(S.saveCancelled);
           SmartDialog.dismiss(status: SmartStatus.loading);
           return;
         }
         var file = File(path);
         await file.writeAsBytes(imageData);
-        SmartDialog.showToast("已保存截图至${file.path}");
+        SmartDialog.showToast(S.screenshotSavedToPath(file.path));
       }
     } catch (e) {
       Log.logPrint(e);
-      SmartDialog.showToast("截图失败");
+      SmartDialog.showToast(S.screenshotFailed);
     } finally {
       SmartDialog.dismiss(status: SmartStatus.loading);
     }
@@ -425,7 +426,7 @@ mixin PlayerSystemMixin on PlayerMixin, PlayerStateMixin, PlayerDanmakuMixin {
       return;
     }
     if (await pip.isPipAvailable == false) {
-      SmartDialog.showToast("设备不支持小窗播放");
+      SmartDialog.showToast(S.deviceNotSupportPip);
       return;
     }
     danmakuStateBeforePIP = showDanmakuState.value;
@@ -728,7 +729,7 @@ class PlayerController extends BaseController
 
   void showDebugInfo() {
     Utils.showBottomSheet(
-      title: "播放信息",
+      title: S.playInfo,
       child: ListView(
         children: [
           ListTile(

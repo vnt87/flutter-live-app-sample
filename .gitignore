@@ -3,3 +3,75 @@ simple_live_tv_app/.vscode/settings.json
 
 # macOS Spotlight Search index file
 *.DS_Store
+
+# Flutter/Dart build artifacts
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/pubspec.lock
+
+# Platform-specific build directories
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+**/android/.gradle/
+**/android/gradle/
+**/android/local.properties
+**/android/key.properties
+**/android/app/upload-keystore.jks
+
+**/ios/Pods/
+**/ios/Podfile.lock
+**/ios/.symlinks/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+**/macos/Pods/
+**/macos/Podfile.lock
+**/macos/.symlinks/
+**/macos/Flutter/ephemeral/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+
+**/linux/flutter/ephemeral/
+**/windows/flutter/ephemeral/
+
+# FVM Version Cache
+**/.fvm/flutter_sdk
+**/.fvm/version
+
+# IDE and editor files
+**/.vscode/launch.json
+**/.idea/
+**/*.iml
+**/*.ipr
+**/*.iws
+
+# Temporary and cache files
+**/.build/
+**/.buildlog/
+**/migrate_working_dir/
+**/.history
+
+# Symbolication and obfuscation
+**/app.*.symbols
+**/app.*.map.json
+
+# Generated files
+**/doc/api/
+**/coverage/
+**/.nyc_output/
+
+# Distribution and packaging
+**/distribute/
+**/release/

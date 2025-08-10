@@ -23,6 +23,7 @@ import 'package:simple_live_app/models/db/history.dart';
 import 'package:simple_live_app/modules/other/debug_log_page.dart';
 import 'package:simple_live_app/routes/app_pages.dart';
 import 'package:simple_live_app/routes/route_path.dart';
+import 'package:simple_live_app/i18n/app_localizations.dart';
 import 'package:simple_live_app/services/bilibili_account_service.dart';
 import 'package:simple_live_app/services/db_service.dart';
 import 'package:simple_live_app/services/follow_service.dart';
@@ -129,6 +130,9 @@ Future initServices() async {
   //Khởi tạo controller cài đặt
   Get.put(AppSettingsController());
 
+  // Register AppLocalizations for GetX
+  Get.put(AppLocalizations());
+
   Get.put(BiliBiliAccountService());
 
   Get.put(SyncService());
@@ -194,13 +198,18 @@ class MyApp extends StatelessWidget {
         initialRoute: RoutePath.kIndex,
         getPages: AppPages.routes,
         //Quốc tế hóa
-        locale: const Locale("zh", "CN"),
+        locale: const Locale("vi", "VN"),
+        fallbackLocale: const Locale("zh", "CN"),
+        translations: AppLocalizations(),
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: const [Locale("zh", "CN")],
+        supportedLocales: const [
+          Locale("zh", "CN"),
+          Locale("vi", "VN"),
+        ],
         logWriterCallback: (text, {bool? isError}) {
           Log.addDebugLog(text, (isError ?? false) ? Colors.red : Colors.grey);
           Log.writeLog(text, (isError ?? false) ? Level.error : Level.info);

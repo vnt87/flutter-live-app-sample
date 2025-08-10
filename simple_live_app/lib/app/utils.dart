@@ -5,13 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:remixicon/remixicon.dart';
-import 'package:simple_live_app/app/app_style.dart';
-import 'package:intl/intl.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:simple_live_app/app/app_style.dart';
 import 'package:simple_live_app/app/log.dart';
+import 'package:simple_live_app/app/sites.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 typedef TextValidate = bool Function(String text);
 
@@ -72,11 +73,11 @@ class Utils {
           ...?actions,
           TextButton(
             onPressed: (() => Get.back(result: false)),
-            child: Text(cancel.isEmpty ? "取消" : cancel),
+            child: Text(cancel.isEmpty ? S.cancel : cancel),
           ),
           TextButton(
             onPressed: (() => Get.back(result: true)),
-            child: Text(confirm.isEmpty ? "确定" : confirm),
+            child: Text(confirm.isEmpty ? S.confirm : confirm),
           ),
         ],
       ),
@@ -100,7 +101,7 @@ class Utils {
         actions: [
           TextButton(
             onPressed: (() => Get.back(result: true)),
-            child: Text(confirm.isEmpty ? "确定" : confirm),
+            child: Text(confirm.isEmpty ? S.confirm : confirm),
           ),
         ],
       ),
@@ -256,7 +257,7 @@ class Utils {
         actions: [
           TextButton(
             onPressed: Get.back,
-            child: const Text("取消"),
+            child: Text(S.cancel),
           ),
           TextButton(
             onPressed: () {
@@ -266,7 +267,7 @@ class Utils {
 
               Get.back(result: textEditingController.text);
             },
-            child: const Text("确定"),
+            child: Text(S.confirm),
           ),
         ],
       ),
@@ -312,13 +313,13 @@ class Utils {
   }) async {
     var result = await Get.dialog(
       AlertDialog(
-        title: title ?? const Text("帮助"),
+        title: title ?? Text(S.help),
         scrollable: true,
         content: SingleChildScrollView(child: ListBody(children: content)),
         actions: actions??[
           TextButton(
             onPressed: Get.back,
-            child: const Text("确定"),
+            child: Text(S.confirm),
           ),
         ],
       ),
@@ -332,7 +333,7 @@ class Utils {
     var result = await showAlertDialog(
       text,
       selectable: true,
-      title: "免责声明",
+      title: S.disclaimer,
       confirm: "已阅读并同意",
       cancel: "退出",
     );
@@ -398,7 +399,7 @@ class Utils {
         return true;
       } else {
         SmartDialog.showToast(
-          "请授予相册访问权限",
+          S.albumPermissionRequired,
         );
         return false;
       }
@@ -430,7 +431,7 @@ class Utils {
         return true;
       } else {
         SmartDialog.showToast(
-          "请授予文件访问权限",
+          S.storagePermissionRequired,
         );
         return false;
       }
@@ -468,10 +469,10 @@ class Utils {
   static void copyToClipboard(String text) async {
     try {
       await Clipboard.setData(ClipboardData(text: text));
-      SmartDialog.showToast("已复制到剪贴板");
+      SmartDialog.showToast(S.copiedToClipboard);
     } catch (e) {
       Log.logPrint(e);
-      SmartDialog.showToast("复制到剪贴板失败: $e");
+      SmartDialog.showToast("${S.copyFailed}: $e");
     }
   }
 
@@ -480,13 +481,13 @@ class Utils {
     try {
       var content = await Clipboard.getData(Clipboard.kTextPlain);
       if (content == null) {
-        SmartDialog.showToast("无法读取剪贴板内容");
+        SmartDialog.showToast(S.cannotReadClipboard);
         return null;
       }
       return content.text;
     } catch (e) {
       Log.logPrint(e);
-      SmartDialog.showToast("读取剪切板内容失败：$e");
+      SmartDialog.showToast("${S.readClipboardFailed}：$e");
     }
     return null;
   }

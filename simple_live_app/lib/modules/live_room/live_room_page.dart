@@ -24,6 +24,7 @@ import 'package:simple_live_app/widgets/settings/settings_number.dart';
 import 'package:simple_live_app/widgets/settings/settings_switch.dart';
 import 'package:simple_live_app/widgets/superchat_card.dart';
 import 'package:simple_live_core/simple_live_core.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 class LiveRoomPage extends GetView<LiveRoomController> {
   const LiveRoomPage({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
         if (controller.loadError.value) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text("直播间加载失败"),
+              title: Text(S.liveRoomLoadFailed),
             ),
             body: Padding(
               padding: AppStyle.edgeInsetsA12,
@@ -48,13 +49,13 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                     height: 140,
                     repeat: false,
                   ),
-                  const Text(
-                    "直播间加载失败",
+                  Text(
+                    S.liveRoomLoadFailed,
                     textAlign: TextAlign.center,
                   ),
                   AppStyle.vGap4,
                   Text(
-                    controller.error?.toString() ?? "未知错误",
+                    controller.error?.toString() ?? S.unknownError,
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -72,12 +73,12 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                       TextButton.icon(
                         onPressed: controller.copyErrorDetail,
                         icon: const Icon(Remix.file_copy_line),
-                        label: const Text("复制信息"),
+                        label: Text(S.copyInfo),
                       ),
                       TextButton.icon(
                         onPressed: controller.refreshRoom,
                         icon: const Icon(Remix.refresh_line),
-                        label: const Text("刷新"),
+                        label: Text(S.refresh),
                       ),
                     ],
                   )
@@ -117,7 +118,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
         return Scaffold(
           appBar: AppBar(
             title: Obx(
-              () => Text(controller.detail.value?.title ?? "直播间"),
+              () => Text(controller.detail.value?.title ?? S.room),
             ),
             actions: buildAppbarActions(context),
           ),
@@ -184,7 +185,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                 ),
                 onPressed: controller.refreshRoom,
                 icon: const Icon(Remix.refresh_line),
-                label: const Text("刷新"),
+                label: Text(S.refresh),
               ),
               AppStyle.hGap4,
               Obx(
@@ -195,7 +196,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                         ),
                         onPressed: controller.removeFollowUser,
                         icon: const Icon(Remix.heart_fill),
-                        label: const Text("取消关注"),
+                        label: Text(S.unfollow),
                       )
                     : TextButton.icon(
                         style: TextButton.styleFrom(
@@ -203,7 +204,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                         ),
                         onPressed: controller.followUser,
                         icon: const Icon(Remix.heart_line),
-                        label: const Text("关注"),
+                        label: Text(S.follow),
                       ),
               ),
               const Expanded(child: Center()),
@@ -213,7 +214,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                 ),
                 onPressed: controller.share,
                 icon: const Icon(Remix.share_line),
-                label: const Text("分享"),
+                label: Text(S.share),
               ),
               TextButton.icon(
                 style: TextButton.styleFrom(
@@ -221,7 +222,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                 ),
                 onPressed: controller.copyUrl,
                 icon: const Icon(Remix.file_copy_line),
-                label: const Text("复制链接"),
+                label: Text(S.copyLink),
               ),
               TextButton.icon(
                 style: TextButton.styleFrom(
@@ -229,7 +230,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                 ),
                 onPressed: controller.copyPlayUrl,
                 icon: const Icon(Remix.file_copy_line),
-                label: const Text("复制播放直链"),
+                label: Text(S.copyPlayUrl),
               ),
             ],
           ),
@@ -274,10 +275,10 @@ class LiveRoomPage extends GetView<LiveRoomController> {
         Obx(
           () => Visibility(
             visible: !controller.liveStatus.value,
-            child: const Center(
+            child: Center(
               child: Text(
-                "未开播",
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                S.notStreaming,
+                style: const TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
           ),
@@ -395,7 +396,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                       ),
                       onPressed: controller.removeFollowUser,
                       icon: const Icon(Remix.heart_fill),
-                      label: const Text("取消关注"),
+                      label: Text(S.unfollow),
                     )
                   : TextButton.icon(
                       style: TextButton.styleFrom(
@@ -403,7 +404,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                       ),
                       onPressed: controller.followUser,
                       icon: const Icon(Remix.heart_line),
-                      label: const Text("关注"),
+                      label: Text(S.follow),
                     ),
             ),
           ),
@@ -414,7 +415,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
               ),
               onPressed: controller.refreshRoom,
               icon: const Icon(Remix.refresh_line),
-              label: const Text("刷新"),
+              label: Text(S.refresh),
             ),
           ),
           Expanded(
@@ -424,7 +425,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
               ),
               onPressed: controller.share,
               icon: const Icon(Remix.share_line),
-              label: const Text("分享"),
+              label: Text(S.share),
             ),
           ),
         ],
@@ -443,8 +444,8 @@ class LiveRoomPage extends GetView<LiveRoomController> {
               labelPadding: EdgeInsets.zero,
               indicatorWeight: 1.0,
               tabs: [
-                const Tab(
-                  text: "聊天",
+                Tab(
+                  text: S.chat,
                 ),
                 if (controller.site.id == Constant.kBiliBili)
                   Tab(
@@ -456,11 +457,11 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                       ),
                     ),
                   ),
-                const Tab(
-                  text: "关注",
+                Tab(
+                  text: S.follow,
                 ),
-                const Tab(
-                  text: "设置",
+                Tab(
+                  text: S.settings,
                 ),
               ],
             ),
@@ -498,7 +499,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
                                 controller.chatScrollToBottom();
                               },
                               icon: const Icon(Icons.expand_more),
-                              label: const Text("最新"),
+                              label: Text(S.latest),
                             ),
                           ),
                         ),
@@ -632,7 +633,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
         Padding(
           padding: AppStyle.edgeInsetsA12,
           child: Text(
-            "聊天区",
+            S.chatArea,
             style: Get.textTheme.titleSmall,
           ),
         ),
@@ -642,7 +643,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
             children: [
               Obx(
                 () => SettingsNumber(
-                  title: "文字大小",
+                  title: S.fontSize,
                   value:
                       AppSettingsController.instance.chatTextSize.value.toInt(),
                   min: 8,
@@ -656,7 +657,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
               AppStyle.divider,
               Obx(
                 () => SettingsNumber(
-                  title: "上下间隔",
+                  title: S.lineSpacing,
                   value:
                       AppSettingsController.instance.chatTextGap.value.toInt(),
                   min: 0,
@@ -669,7 +670,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
               AppStyle.divider,
               Obx(
                 () => SettingsSwitch(
-                  title: "气泡样式",
+                  title: S.bubbleStyle,
                   value: AppSettingsController.instance.chatBubbleStyle.value,
                   onChanged: (e) {
                     AppSettingsController.instance.setChatBubbleStyle(e);
@@ -682,7 +683,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
         Padding(
           padding: AppStyle.edgeInsetsA12,
           child: Text(
-            "更多设置",
+            S.moreSettings,
             style: Get.textTheme.titleSmall,
           ),
         ),
@@ -691,22 +692,22 @@ class LiveRoomPage extends GetView<LiveRoomController> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SettingsAction(
-                title: "关键词屏蔽",
+                title: S.keywordBlocking,
                 onTap: controller.showDanmuShield,
               ),
               AppStyle.divider,
               SettingsAction(
-                title: "弹幕设置",
+                title: S.danmakuSettings,
                 onTap: controller.showDanmuSettingsSheet,
               ),
               AppStyle.divider,
               SettingsAction(
-                title: "定时关闭",
+                title: S.timerClose,
                 onTap: controller.showAutoExitSheet,
               ),
               AppStyle.divider,
               SettingsAction(
-                title: "画面尺寸",
+                title: S.screenSize,
                 onTap: controller.showPlayerSettingsSheet,
               ),
             ],
@@ -876,7 +877,7 @@ class LiveRoomPage extends GetView<LiveRoomController> {
             ),
             ListTile(
               leading: const Icon(Icons.info_outline_rounded),
-              title: const Text("播放信息"),
+              title: Text(S.playInfo),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Get.back();

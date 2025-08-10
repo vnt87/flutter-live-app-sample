@@ -18,6 +18,7 @@ import 'package:window_manager/window_manager.dart';
 import 'package:simple_live_app/widgets/superchat_card.dart';
 import 'dart:async';
 import 'package:simple_live_core/simple_live_core.dart';
+import 'package:simple_live_app/i18n/strings.dart';
 
 Widget playerControls(
   VideoState videoState,
@@ -672,7 +673,7 @@ void showLinesInfo(LiveRoomController controller) {
     return;
   }
   Utils.showRightDialog(
-    title: "线路",
+    title: S.line,
     useSystem: true,
     child: ListView.builder(
       padding: EdgeInsets.zero,
@@ -682,7 +683,7 @@ void showLinesInfo(LiveRoomController controller) {
           selected: controller.currentLineIndex == i,
           title: Text.rich(
             TextSpan(
-              text: "线路${i + 1}",
+              text: S.lineNumber(i + 1),
               children: [
                 WidgetSpan(
                     child: Container(
@@ -724,7 +725,7 @@ void showQualitesInfo(LiveRoomController controller) {
     return;
   }
   Utils.showRightDialog(
-    title: "清晰度",
+    title: S.quality,
     useSystem: true,
     child: ListView.builder(
       padding: EdgeInsets.zero,
@@ -755,7 +756,7 @@ void showDanmakuSettings(LiveRoomController controller) {
     return;
   }
   Utils.showRightDialog(
-    title: "弹幕设置",
+    title: S.danmakuSettings,
     width: 400,
     useSystem: true,
     child: ListView(
@@ -775,7 +776,7 @@ void showPlayerSettings(LiveRoomController controller) {
     return;
   }
   Utils.showRightDialog(
-    title: "设置",
+    title: S.settings,
     width: 320,
     useSystem: true,
     child: Obx(
@@ -785,14 +786,14 @@ void showPlayerSettings(LiveRoomController controller) {
           Padding(
             padding: AppStyle.edgeInsetsH16,
             child: Text(
-              "画面尺寸",
+              S.screenSize,
               style: Get.textTheme.titleMedium,
             ),
           ),
           RadioListTile(
             value: 0,
             contentPadding: AppStyle.edgeInsetsH4,
-            title: const Text("适应"),
+            title: Text(S.fit),
             visualDensity: VisualDensity.compact,
             groupValue: AppSettingsController.instance.scaleMode.value,
             onChanged: (e) {
@@ -803,7 +804,7 @@ void showPlayerSettings(LiveRoomController controller) {
           RadioListTile(
             value: 1,
             contentPadding: AppStyle.edgeInsetsH4,
-            title: const Text("拉伸"),
+            title: Text(S.stretch),
             visualDensity: VisualDensity.compact,
             groupValue: AppSettingsController.instance.scaleMode.value,
             onChanged: (e) {
@@ -814,7 +815,7 @@ void showPlayerSettings(LiveRoomController controller) {
           RadioListTile(
             value: 2,
             contentPadding: AppStyle.edgeInsetsH4,
-            title: const Text("铺满"),
+            title: Text(S.fill),
             visualDensity: VisualDensity.compact,
             groupValue: AppSettingsController.instance.scaleMode.value,
             onChanged: (e) {
@@ -857,7 +858,7 @@ void showFollowUser(LiveRoomController controller) {
   }
 
   Utils.showRightDialog(
-    title: "关注列表",
+    title: S.followList,
     width: 400,
     useSystem: true,
     child: Obx(
